@@ -62,12 +62,12 @@ class SignupRegionalController extends Controller
          echo '0';
 
      	}else{
-        $conection = \DB::connection('mysql_las');
+        $conection = \DB::connection('mysql_incorp');
 
                // $response = $conection->select("SELECT email FROM nikkenla_incorporation.contracts where email = '$email' and type=0");
         $response_contratcs = $conection->select("SELECT email FROM nikkenla_incorporation.contracts_test where email = '$email'");
 
-        \DB::disconnect('mysql_las');
+        \DB::disconnect('mysql_incorp');
                 if ($response_contratcs) {
 
                    echo '0';
@@ -183,12 +183,12 @@ class SignupRegionalController extends Controller
         
         
 
-        $conection = \DB::connection('mysql_las');
+        $conection = \DB::connection('mysql_incorp');
 
         $playeras = $conection->select("SELECT * FROM nikkenla_incorporation.cat_shirts WHERE pais = '$pais' AND genero = '$gender' ");
         
 
-        \DB::disconnect('mysql_las');
+        \DB::disconnect('mysql_incorp');
 
         return $playeras;
     }
@@ -199,11 +199,11 @@ class SignupRegionalController extends Controller
 
 
 		
-		$conection = \DB::connection('mysql_las');
+		$conection = \DB::connection('mysql_incorp');
 
     	$typedocuments = $conection->select("SELECT id_type, name FROM nikkenla_incorporation.type_documents where type = '$type_person' and country = '$country' order by name ASC ");
 
-    	\DB::disconnect('mysql_las');
+    	\DB::disconnect('mysql_incorp');
 
     	return $typedocuments;
 	}
@@ -215,7 +215,7 @@ class SignupRegionalController extends Controller
             $ciudad= str_replace("%", " ", $request->ciudad);
             $country=$request->country;
 
-            $conection = \DB::connection('mysql_las');
+            $conection = \DB::connection('mysql_incorp');
 
                 //Obtenemos los datos del abi
             $ciudades= $conection->table('nikkenla_incorporation.control_states_test')
@@ -229,7 +229,7 @@ class SignupRegionalController extends Controller
 
             //$cities = $conection->select("SELECT distinct province_name FROM nikkenla_incorporation.control_states_test where pais='10' and state_name = '$state'");
 
-            \DB::disconnect('mysql_las');
+            \DB::disconnect('mysql_incorp');
 
             return \json_encode($ciudades);
 
@@ -241,7 +241,7 @@ class SignupRegionalController extends Controller
 		try {
 
 
-			$conection = \DB::connection('mysql_las');
+			$conection = \DB::connection('mysql_incorp');
 
 	                //Obtenemos los datos del abi
 			$cities= $conection->table('nikkenla_incorporation.control_states_test')
@@ -252,7 +252,7 @@ class SignupRegionalController extends Controller
 			->orderBy('province_name', 'ASC')
 			->get();
 
-			\DB::disconnect('mysql_las');
+			\DB::disconnect('mysql_incorp');
 		}catch (Exception $e) {
 			echo "error al consultar las ciudades".$e;
 		}
@@ -266,11 +266,11 @@ class SignupRegionalController extends Controller
     public function states(Request $request){
     	$estados=$request->getstate;
 
-    	$conection = \DB::connection('mysql_las');
+    	$conection = \DB::connection('mysql_incorp');
 
     	$states = $conection->select("SELECT distinct state_name FROM nikkenla_incorporation.control_states_test where pais='$estados' order by state_name ASC");
 
-    	\DB::disconnect('mysql_las');
+    	\DB::disconnect('mysql_incorp');
 
     	return \json_encode($states);
     }
@@ -398,18 +398,18 @@ class SignupRegionalController extends Controller
             //Generar consecutivo de código
     function Code_consecutive()
     {
-    	$conection = \DB::connection('mysql_las');
+    	$conection = \DB::connection('mysql_incorp');
 
     	$consecutive = $conection->select("SELECT code FROM nikkenla_incorporation.consecutive_codes order by code DESC limit 1");
 
-    	\DB::disconnect('mysql_las');
+    	\DB::disconnect('mysql_incorp');
 
     	$nuevocode = $consecutive[0]->code + 2;
     	$last_digits="03";
     	$completecode = $nuevocode.$last_digits;
-    	$conection = \DB::connection('mysql_las');
+    	$conection = \DB::connection('mysql_incorp');
     	$consecutive = $conection->insert("INSERT INTO nikkenla_incorporation.consecutive_codes (code) VALUES ('$nuevocode')");
-    	\DB::disconnect('mysql_las');
+    	\DB::disconnect('mysql_incorp');
 
 
     	return $completecode;
@@ -552,18 +552,18 @@ public function storeEcuador(Request $request){
     }
     $numer_document_cotitular = $request->input('numer_document_cotitular').trim("");
 
-    $conection = \DB::connection('mysql_las');
+    $conection = \DB::connection('mysql_incorp');
 
     $consecutive = $conection->select("SELECT code FROM nikkenla_incorporation.consecutive_codes_test order by code DESC limit 1");
 
-    \DB::disconnect('mysql_las');
+    \DB::disconnect('mysql_incorp');
 
     $nuevocode = $consecutive[0]->code + 2;
     $last_digits="03";
     $completecode = $nuevocode.$last_digits;
-    $conection = \DB::connection('mysql_las');
+    $conection = \DB::connection('mysql_incorp');
     $consecutive = $conection->insert("INSERT INTO nikkenla_incorporation.consecutive_codes_test (code) VALUES ('$nuevocode')");
-    \DB::disconnect('mysql_las');
+    \DB::disconnect('mysql_incorp');
     $ip = $_SERVER["REMOTE_ADDR"];
     $browser = $_SERVER['HTTP_USER_AGENT'];
     $type_letter = "";
@@ -576,18 +576,18 @@ public function storeEcuador(Request $request){
 
     if ($kit == 5002 || $kit=="5002") {
 
-        $conection = \DB::connection('mysql_las');
+        $conection = \DB::connection('mysql_incorp');
         $user_promotion_exist = $conection->select("SELECT code_ticket FROM nikkenla_incorporation.user_promotion_kit_TEST where code_ticket = '$boleto'");
-        \DB::disconnect('mysql_las');
+        \DB::disconnect('mysql_incorp');
 
         if ($user_promotion_exist) {
             echo "El boleto".$boleto."ya fue utilizado";
             exit;
         }
 
-        $conection = \DB::connection('mysql_las');
+        $conection = \DB::connection('mysql_incorp');
         $user_promotion = $conection->insert("INSERT INTO nikkenla_incorporation.user_promotion_kit_TEST (code_sponsor, code_redeem, kit, status, country_id, code_ticket, created_at) VALUES ('$sponsor','$completecode','$kit','2','10','$boleto','$creacion')");
-        \DB::disconnect('mysql_las');
+        \DB::disconnect('mysql_incorp');
     }
     
 
@@ -643,11 +643,11 @@ public function storeEcuador(Request $request){
 
 
 
-    $conection = \DB::connection('mysql_las');
+    $conection = \DB::connection('mysql_incorp');
 
     $signupfiles = $conection->select("INSERT INTO  nikkenla_incorporation.signupfiles (sap_code,name,filepath,country_id,created_at) VALUES ('$completecode','$titular_name','$urlscompletes','3','$creacion')");
 
-    \DB::disconnect('mysql_las');
+    \DB::disconnect('mysql_incorp');
         
 
     $conection = \DB::connection('mysql_las');
@@ -785,18 +785,18 @@ public function storePeru(Request $request){
     $numer_document_cotitular = $request->input('numer_document_cotitular').trim("");
 	
 
-	$conection = \DB::connection('mysql_las');
+	$conection = \DB::connection('mysql_incorp');
 
 	$consecutive = $conection->select("SELECT code FROM nikkenla_incorporation.consecutive_codes_test order by code DESC limit 1");
 
-	\DB::disconnect('mysql_las');
+	\DB::disconnect('mysql_incorp');
 
 	$nuevocode = $consecutive[0]->code + 2;
 	$last_digits="03";
 	$completecode = $nuevocode.$last_digits;
-	$conection = \DB::connection('mysql_las');
+	$conection = \DB::connection('mysql_incorp');
 	$consecutive = $conection->insert("INSERT INTO nikkenla_incorporation.consecutive_codes_test (code) VALUES ('$nuevocode')");
-	\DB::disconnect('mysql_las');
+	\DB::disconnect('mysql_incorp');
 	$ip = $_SERVER["REMOTE_ADDR"];
 	$browser = $_SERVER['HTTP_USER_AGENT'];
 	$type_letter = "";
@@ -809,18 +809,18 @@ public function storePeru(Request $request){
 
 	if ($kit == 5002 || $kit=="5002") {
 
-		$conection = \DB::connection('mysql_las');
+		$conection = \DB::connection('mysql_incorp');
 		$user_promotion_exist = $conection->select("SELECT code_ticket FROM nikkenla_incorporation.user_promotion_kit_TEST where code_ticket = '$boleto'");
-		\DB::disconnect('mysql_las');
+		\DB::disconnect('mysql_incorp');
 
 		if ($user_promotion_exist) {
 			echo "El boleto".$boleto."ya fue utilizado";
 			exit;
 		}
 
-		$conection = \DB::connection('mysql_las');
+		$conection = \DB::connection('mysql_incorp');
 		$user_promotion = $conection->insert("INSERT INTO nikkenla_incorporation.user_promotion_kit_TEST (code_sponsor, code_redeem, kit, status, country_id, code_ticket, created_at) VALUES ('$sponsor','$completecode','$kit','2','10','$boleto','$creacion')");
-		\DB::disconnect('mysql_las');
+		\DB::disconnect('mysql_incorp');
 	}
 	/*
 
@@ -899,11 +899,11 @@ public function storePeru(Request $request){
 	\DB::disconnect('mysql_las');
     */
 
-	$conection = \DB::connection('mysql_las');
+	$conection = \DB::connection('mysql_incorp');
 
 	$signupfiles = $conection->insert("INSERT INTO nikkenla_incorporation.contracts_test (id_contract, country, code, name, type, type_incorporate, type_sponsor, sponsor, email, cellular, birthday, address, residency_one, residency_two, residency_three, residency_four, name_legal_representative, type_document, number_document, name_cotitular, type_document_cotitular, number_document_cotitular, bank, bank_type, number_account, number_clabe, rfc, ip, browser, gender, kit, playera, talla, verify_digit, separate_name) VALUES ('$id', '$country', '$completecode', '$name', '$type_incorporation', '$type_per', '$type_sponsor', '$sponsor', '$email', '$cel', '$birthdate', '$address', '', '$state', '$city','$colony', '$titular_name_empresa', '$typedocument', '$numberdocument','$cotitular_name', '$typedocumentcoti', '$numer_document_cotitular', '$bank_name', '$type_account', '$numer_account', '0', '0', '$ip', '$browser', '$gender', '$kit', '$playera', '$talla', '03', '')");
 
-	\DB::disconnect('mysql_las');
+	\DB::disconnect('mysql_incorp');
 
 	echo $signupfiles;
 
