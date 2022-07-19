@@ -66,6 +66,14 @@
                     <br>
                     <label for="inputEmail" class="text-center"><b>Costa Rica</b></label>
                 </div>
+                <div class="form-group col-md-3">
+
+                    <a href="/profile/pan/" value="es">
+                        <img src="{{asset('regchileasset/img/pan.png')}}" class="img_country rounded bs-toolti"  data-toggle="tooltip" data-placement="left" title="Panamá">
+                    </a>
+                    <br>
+                    <label for="inputEmail" class="text-center"><b>Panamá</b></label>
+                </div>
             </div>
         </div>
     </div>
