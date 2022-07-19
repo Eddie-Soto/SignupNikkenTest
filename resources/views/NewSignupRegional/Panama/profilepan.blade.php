@@ -157,8 +157,8 @@ NIKKEN.</div>
      <select class="form-control" name="kit" id="kit" onchange="Ocultar_playeras(); getDataShirt();">
         <option value="">Selecciona un Kit de inicio</option>
         <option value="5006">5006 KIT CLÁSICO $ 100.00</option>
-        <option value="5023">5023 KIT INFLUENCER  PI WATER $ 264.00</option>
-        <option value="5024">5024 KIT INFLUENCER  WATERFALL $ 498.00</option>
+        <option value="5023">5023 KIT INFLUENCER  PI WATER $ 209.00</option>
+        <option value="5024">5024 KIT INFLUENCER  WATERFALL $ 397.00</option>
         
 
     </select>
@@ -172,8 +172,8 @@ NIKKEN.</div>
       <label for="type_per"><span style="color: red !important;">*</span> <b>TIPO DE PERSONA:</b></label>
       <select id="type_per" name="type_per" class="form-control" onchange="getDocuments(); getTypePerson(this.value); ">
         <option value=""></option>
-        <option value="1">Persona natural</option>
-        <option value="0">Empresa</option>
+        <option value="1">Persona Natural</option>
+        <option value="0">Persona Jurídica</option>
     </select>
 </div>
 
@@ -227,19 +227,16 @@ NIKKEN.</div>
 <div class="row">
 
     <div class="col-md-3">
-        <label for="state"><span style="color: red !important;">*</span> <b>Provincia:</b></label>
+        <label for="state"><span style="color: red !important;">*</span> <b>Ciudad:</b></label>
         <select id="state"  name="state" class="form-control">
            {{-- <option value="" selected>{{ __('auth.selreg') }}</option>--}}
        </select>
    </div>
 
    <div class="col-md-3">
-        <label for="city"><span style="color: red !important;">*</span> <b>Ciudad:</b></label>
-        <input type="text" name="city" id="city" class="form-control">
-        
+        <label for="city"><span style="color: red !important;">*</span> <b>Provincia:</b></label>
+        <input type="text" name="city" id="city" class="form-control">        
    </div>
-
-   
 
 </div>
 <!--CHILE CHANGUE CIUDAD-->
@@ -266,11 +263,10 @@ NIKKEN.</div>
 <div class="row">
     <div class="col-md-6" id="typedocuments">
       <label for="typedocument"><span style="color: red !important;">*</span> <b>Tipo de Documento:</b></label>
-      <select id="typedocument" name="typedocument" class="form-control" >
-        <option value="">Selecciona Tu Documento</option>
-        
-    </select>
-</div>
+        <select id="typedocument" name="typedocument" class="form-control" >
+            <option value="">Selecciona Tu Documento</option>
+        </select>
+    </div>
 <div class="col-md-6" id="rut_natural">
     <label for="numberdocument"><span style="color: red !important;">*</span> <b>Número de Documento</b></label>
     <input type="text" id="numberdocument" name="numberdocument" minlength="8" maxlength="13" class="form-control">

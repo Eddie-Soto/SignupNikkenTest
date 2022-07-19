@@ -717,6 +717,78 @@ function getDocuments(){
   }
 }
 
+function validations(){
+    
+        
+        var terms = verify_terms();
+        var privacy = verify_privacy_policy();
+        var declare = verify_declare();
+       /* if(terms == true && privacy == true && declare == true){
+            $("#formProfile").submit();
+        }*/
+        
+        if(terms == true && privacy == true && declare == true){
+            if($("#type_inc2").is(':checked')) {  
+              RememberBuy();
+            }
+            $("#formProfile").submit();
+        }
+}
+
+function verify_terms(){
+    if(!$("input[id='terms']").is(':checked')){
+        swal({
+            title: 'Error',
+            text: terminos,
+            type: 'error',
+            padding: '2em'
+        })
+        return false;
+     }
+     else{
+        return true;
+     }
+
+}
+function verify_privacy_policy(){
+    if(!$("input[id='privacy_policy']").is(':checked')){
+        swal({
+            title: 'Error',
+            text: privacy_policy_acept,
+            type: 'error',
+            padding: '2em'
+        })
+      return false;
+     }
+     else{
+        return true;
+     }
+}
+function verify_declare(){
+    if(!$("input[id='declare']").is(':checked')){
+        swal({
+            title: 'Error',
+            text: declare_acept,
+            type: 'error',
+            padding: '2em'
+        })
+      return false;
+     }
+     else{
+        return true;
+     }
+}
+
+function RememberBuy(){
+    swal({
+        title: 'Recuerda:',
+        text: "Para completar tu inscripción adquiere un producto en la tienda virtual, al terminar tu compra recibirás un correo con tu carta de bienvenida.",
+        type: 'success',
+        padding: '2em'
+    })
+
+}
+
 
 
 $( document ).ready(function() {
