@@ -603,8 +603,8 @@ public function storeEcuador(Request $request){
        $disk = \Storage::disk('gcs');
          
        $name1 = $request->file('fileone')->getClientOriginalName();
-       $disk->put('ECU/' . $name1,file_get_contents($request->file('fileone')->getPathName()));
-       $full_pathone = $disk->url('ECU/' .$name1);
+       $disk->put('CHL/' . $name1,file_get_contents($request->file('fileone')->getPathName()));
+       $full_pathone = $disk->url('CHL/' .$name1);
 
 
       $urlscompletes=$full_pathone;
@@ -619,8 +619,8 @@ public function storeEcuador(Request $request){
          $disk = \Storage::disk('gcs');
          
        $name2 = $request->file('filetwo')->getClientOriginalName();
-       $disk->put('ECU/' . $name2,file_get_contents($request->file('filetwo')->getPathName()));
-       $full_pathtwo = $disk->url('ECU/' .$name2);
+       $disk->put('CHL/' . $name2,file_get_contents($request->file('filetwo')->getPathName()));
+       $full_pathtwo = $disk->url('CHL/' .$name2);
       $urlscompletes=$full_pathone.";".$full_pathtwo;
      
       
