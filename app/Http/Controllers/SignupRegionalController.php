@@ -593,50 +593,38 @@ public function storeEcuador(Request $request){
 
     $fileone = $request->file('fileone');
     $filetwo = $request->file('filetwo');
-    
-
-
-    $urlscompletes='';
-
-
-       //obtenemos el nombre del archivo
-       //$nombre = $fileone->getClientOriginalName();
 
 
 
-    if ($request->hasFile('fileone') && $request->fileone) {
+      $urlscompletes='';
 
-        $name1 = $fileone->getClientOriginalName();
+      if ($request->hasFile('fileone') && $request->fileone) {
 
-        $path = $request->file('fileone')->store(
-            SignupRegionalController::S3_SLIDERS_FOLDER,
-            SignupRegionalController::S3_OPTIONS
-        );
-
-
-
-                //asi obtienes la url donde se guardo
-        $full_pathone = Storage::disk('s3')->url($path);
-        $urlscompletes=$full_pathone;
+       $disk = \Storage::disk('gcs');
+         
+       $name1 = $request->file('fileone')->getClientOriginalName();
+       $disk->put('ECU/' . $name1,file_get_contents($request->file('fileone')->getPathName()));
+       $full_pathone = $disk->url('ECU/' .$name1);
 
 
+      $urlscompletes=$full_pathone;
+      
+      
     }
+
 
     if ($request->hasFile('filetwo') && $request->filetwo) {
 
-        $name2 = $filetwo->getClientOriginalName();
 
-        $path2 = $request->file('filetwo')->store(
-            SignupRegionalController::S3_SLIDERS_FOLDER,
-            SignupRegionalController::S3_OPTIONS
-        );
-
-                //asi obtienes la url donde se guardo
-        $full_pathtwo = Storage::disk('s3')->url($path2);
-        $urlscompletes=$full_pathone.";".$full_pathtwo;
-
-
-
+         $disk = \Storage::disk('gcs');
+         
+       $name2 = $request->file('filetwo')->getClientOriginalName();
+       $disk->put('ECU/' . $name2,file_get_contents($request->file('filetwo')->getPathName()));
+       $full_pathtwo = $disk->url('ECU/' .$name2);
+      $urlscompletes=$full_pathone.";".$full_pathtwo;
+     
+      
+      
     }
 
     
@@ -645,7 +633,7 @@ public function storeEcuador(Request $request){
 
     $conection = \DB::connection('mysql_incorp');
 
-    $signupfiles = $conection->select("INSERT INTO  nikkenla_incorporation.signupfiles (sap_code,name,filepath,country_id,created_at) VALUES ('$completecode','$titular_name','$urlscompletes','3','$creacion')");
+    $signupfiles = $conection->select("INSERT INTO  nikkenla_incorporation.signupfiles (sap_code,name,filepath,country_id,created_at) VALUES ('$completecode','$titular_name','$urlscompletes','4','$creacion')");
 
     \DB::disconnect('mysql_incorp');
         
@@ -822,73 +810,42 @@ public function storePeru(Request $request){
 		$user_promotion = $conection->insert("INSERT INTO nikkenla_incorporation.user_promotion_kit_TEST (code_sponsor, code_redeem, kit, status, country_id, code_ticket, created_at) VALUES ('$sponsor','$completecode','$kit','2','10','$boleto','$creacion')");
 		\DB::disconnect('mysql_incorp');
 	}
-	/*
 
-	$fileone = $request->file('fileone');
-	$filetwo = $request->file('filetwo');
-	$filetrhee = $request->file('filetrhee');
-
-
-	$urlscompletes='';
-
-
-       //obtenemos el nombre del archivo
-       //$nombre = $fileone->getClientOriginalName();
+    $fileone = $request->file('fileone');
+    $filetwo = $request->file('filetwo');
 
 
 
-	if ($request->hasFile('fileone') && $request->fileone) {
+      $urlscompletes='';
 
-		$name1 = $fileone->getClientOriginalName();
+      if ($request->hasFile('fileone') && $request->fileone) {
 
-		$path = $request->file('fileone')->store(
-			SignupRegionalController::S3_SLIDERS_FOLDER,
-			SignupRegionalController::S3_OPTIONS
-		);
-
-
-
-                //asi obtienes la url donde se guardo
-		$full_pathone = Storage::disk('s3')->url($path);
-		$urlscompletes=$full_pathone;
+       $disk = \Storage::disk('gcs');
+         
+       $name1 = $request->file('fileone')->getClientOriginalName();
+       $disk->put('ECU/' . $name1,file_get_contents($request->file('fileone')->getPathName()));
+       $full_pathone = $disk->url('ECU/' .$name1);
 
 
-	}
-
-	if ($request->hasFile('filetwo') && $request->filetwo) {
-
-		$name2 = $filetwo->getClientOriginalName();
-
-		$path2 = $request->file('filetwo')->store(
-			SignupRegionalController::S3_SLIDERS_FOLDER,
-			SignupRegionalController::S3_OPTIONS
-		);
-
-                //asi obtienes la url donde se guardo
-		$full_pathtwo = Storage::disk('s3')->url($path2);
-		$urlscompletes=$full_pathone.";".$full_pathtwo;
+      $urlscompletes=$full_pathone;
+      
+      
+    }
 
 
-
-	}
-
-	if ($request->hasFile('filetrhee') && $request->filetrhee) {
-
-		$name3 = $filetrhee->getClientOriginalName();
-
-		$path3 = $request->file('filetrhee')->store(
-			SignupRegionalController::S3_SLIDERS_FOLDER,
-			SignupRegionalController::S3_OPTIONS
-		);
-
-                //asi obtienes la url donde se guardo
-		$full_paththree = Storage::disk('s3')->url($path3);
-		$urlscompletes=$full_paththree;
+    if ($request->hasFile('filetwo') && $request->filetwo) {
 
 
-
-
-	}
+         $disk = \Storage::disk('gcs');
+         
+       $name2 = $request->file('filetwo')->getClientOriginalName();
+       $disk->put('ECU/' . $name2,file_get_contents($request->file('filetwo')->getPathName()));
+       $full_pathtwo = $disk->url('ECU/' .$name2);
+      $urlscompletes=$full_pathone.";".$full_pathtwo;
+     
+      
+      
+    }
 
 
 
@@ -897,7 +854,7 @@ public function storePeru(Request $request){
 	$signupfiles = $conection->select("INSERT INTO  nikkenla_incorporation.signupfiles (sap_code,name,filepath,country_id,created_at) VALUES ('$completecode','$titular_name','$urlscompletes','3','$creacion')");
 
 	\DB::disconnect('mysql_las');
-    */
+    
 
 	$conection = \DB::connection('mysql_incorp');
 
@@ -1013,7 +970,8 @@ public function checkOutClubApartado($email){
       /**
     * Método que realizar el checkout independiente
     */
-      public function checkOutRe(Request $request){
+      
+    public function checkOutRe(Request $request){
 
 
         /*Obtenemos los datos del aseror*/
