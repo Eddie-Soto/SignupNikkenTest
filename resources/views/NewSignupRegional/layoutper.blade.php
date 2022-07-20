@@ -99,9 +99,9 @@
 
         <div class="col-md-12 alert alert-info" role="alert">
 
-           <b> <p class="format-margin-bottom"><strong>Si ya has iniciado el proceso de incorporación utiliza</strong></p><b>
+           <b> <p class="format-margin-bottom"><strong>Si ya has iniciado el proceso de registro utiliza</strong></p><b>
 
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-return-incorporate" data-keyboard="false">Retomar incorporación  <i class="pe-7s-info"></i></button>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-return-incorporate" data-keyboard="false">Retomar registro <i class="pe-7s-info"></i></button>
         </div>
         
         
@@ -125,7 +125,7 @@
 
                 <div class="modal-body">
 
-                    <p>A continuación <strong>ingresa tu correo electrónico</strong> para retomar la incorporación</p>
+                    <p>A continuación <strong>ingresa tu correo electrónico</strong> para retomar el registro</p>
 
                     <div class="form-group">
 
