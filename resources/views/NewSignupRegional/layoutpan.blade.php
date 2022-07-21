@@ -190,7 +190,7 @@
     <script src="{{ asset('regchileasset/file-upload/file-upload-with-preview.js') }}"></script>
 
     <script language="JavaScript" type="text/javascript" src="{{ asset('regchileasset/js/singup/Panama/signuppan.js?v=1.0') }} "></script>
-<script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/singup/Ecuador/validationspan.js?v=1.0')}}"></script>
+<!--script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/singup/Ecuador/validationspan.js?v=1.0')}}"></script-->
 <!--script src="http://signup.nikkenlatam.com/regchileasset/plugins/input-mask/jquery.inputmask.bundle.min.js"></script>
     <script src="http://signup.nikkenlatam.com/regchileasset/plugins/input-mask/input-mask.js"></script-->
 <script type="text/javascript">
