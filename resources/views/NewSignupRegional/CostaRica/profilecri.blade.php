@@ -143,8 +143,8 @@
      <label for="kit"><span style="color: red !important;">*</span> <b>Selecciona Tu Kit de Inicio</b></label>
      <select class="form-control" name="kit-cb" id="kit-cb" onchange="Ocultar_playeras(); getDataShirt();">
         <option value="">Selecciona un Kit de inicio</option>
-        <option value="5031" >5031 KIT MIEMBRO DE LA COMUNIDAD</option>
-        <option value="5032" >5032 KIT ALCANCIA ELECTRONICA $ 1.00</option>
+        <option value="5031" >5031 KIT MIEMBRO DE LA COMUNIDAD ₡0.00</option>
+        <option value="5032" >5032 KIT ALCANCIA ELECTRONICA ₡610.00</option>
     </select>
 </div>
 </div>
@@ -154,9 +154,9 @@
      <label for="kit"><span style="color: red !important;">*</span> <b>Selecciona Tu Kit de Inicio</b></label>
      <select class="form-control" name="kit" id="kit" onchange="Ocultar_playeras(); getDataShirt();">
         <option value="">Selecciona un Kit de inicio</option>
-        <option value="5006">5006 Inscripción Asesor de Bienestar- Kit Virtual ₡64 500</option>
-        <option value="5023">5023 Kit Influencer- PIMAG Pi Water ₡134 400</option>
-        <option value="5024">5024 Kit Influencer- PIMAG Waterfall ₡248 300</option>
+        <option value="5006">5006 Inscripción Asesor de Bienestar- Kit Virtual ₡64,500.00</option>
+        <option value="5023">5023 Kit Influencer- PIMAG Pi Water ₡134,400.00</option>
+        <option value="5024">5024 Kit Influencer- PIMAG Waterfall ₡248,300.00</option>
         
 
     </select>
