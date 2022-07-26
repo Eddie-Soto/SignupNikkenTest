@@ -154,9 +154,9 @@
      <label for="kit"><span style="color: red !important;">*</span> <b>Selecciona Tu Kit de Inicio</b></label>
      <select class="form-control" name="kit" id="kit" onchange="Ocultar_playeras(); getDataShirt();">
         <option value="">Selecciona un Kit de inicio</option>
-        <option value="5006">5006 KIT CLÁSICO $ 100.00</option>
-        <option value="5023">5023 KIT INFLUENCER  PI WATER $ 264.00</option>
-        <option value="5024">5024 KIT INFLUENCER  WATERFALL $ 498.00</option>
+        <option value="5006">5006 Inscripción Asesor de Bienestar- Kit Virtual ₡64 500</option>
+        <option value="5023">5023 Kit Influencer- PIMAG Pi Water ₡134 400</option>
+        <option value="5024">5024 Kit Influencer- PIMAG Waterfall ₡248 300</option>
         
 
     </select>
