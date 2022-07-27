@@ -10,6 +10,7 @@
                     </label>
                     <br>
                     <label>{{ __('auth.info_bank') }}</label>
+                    <label><small>La cuenta debe ser en colones y a nombre del inscrito.</small></label>
 
                 </div>
             </strong>
@@ -35,7 +36,7 @@
     </div>
     
     <div class="col-md-6" id="numberaccount">
-        <label for="number_account"><span style="color: red !important;">*</span> <b>{{ __('auth.number_account') }}</b></label>
+        <label for="number_account"><span style="color: red !important;">*</span> <b> Número de Cuenta (IBAN) </b></label>
         <input type="text" id="number_account" name="number_account" class="form-control">
     </div>
 
