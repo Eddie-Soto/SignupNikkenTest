@@ -227,14 +227,14 @@ NIKKEN.</div>
 <div class="row">
 
     <div class="col-md-3">
-        <label for="state"><span style="color: red !important;">*</span> <b>Ciudad:</b></label>
+        <label for="state"><span style="color: red !important;">*</span> <b>Provincia:</b></label>
         <select id="state"  name="state" class="form-control">
            {{-- <option value="" selected>{{ __('auth.selreg') }}</option>--}}
        </select>
    </div>
 
    <div class="col-md-3">
-        <label for="city"><span style="color: red !important;">*</span> <b>Provincia:</b></label>
+        <label for="city"><span style="color: red !important;">*</span> <b>Ciudad:</b></label>
         <input type="text" name="city" id="city" class="form-control">        
    </div>
 
@@ -269,7 +269,12 @@ NIKKEN.</div>
     </div>
 <div class="col-md-6" id="rut_natural">
     <label for="numberdocument"><span style="color: red !important;">*</span> <b>Número de Documento</b></label>
-    <input type="text" id="numberdocument" name="numberdocument" minlength="8" maxlength="13" class="form-control">
+    <input type="text" id="numberdocument" onchange="exist_dv();" name="numberdocument" minlength="8" maxlength="13" class="form-control">
+</div>
+
+<div class="col-md-6" id="dv">
+    <label for="verify_digit"><span style="color: red !important;">*</span> <b>Digito de Verificación</b></label>
+    <input type="text" id="verify_digit" name="verify_digit" minlength="3" maxlength="3" class="form-control">
 </div>
 <div class="col-md-12" id="namelegalperson">
     <label for="name-legal-representative"><span style="color: red !important;">*</span> <b>Apellidos y Nombres Completos del Representate Legal</b></label>

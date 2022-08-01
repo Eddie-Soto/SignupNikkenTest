@@ -717,6 +717,21 @@ function getDocuments(){
   }
 }
 
+function exist_dv(){
+    var document_t=document.getElementById("typedocument").value;
+    var digit_input=document.getElementById("verify_digit");
+    var dv=document.getElementById("dv");
+    if(document_t=='28' || document_t=='11'){
+      dv.removeAttribute('hidden',false);
+      digit_input.setAttribute('required',true);
+      //digit_input.addClass("required");
+    }else{
+      dv.setAttribute('hidden',true);
+      digit_input.removeAttribute('required',false);
+      //digit_input.removeClass("required");
+    }
+  }
+
 function validations(){
     
         
