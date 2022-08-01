@@ -263,13 +263,13 @@ NIKKEN.</div>
 <div class="row">
     <div class="col-md-6" id="typedocuments">
       <label for="typedocument"><span style="color: red !important;">*</span> <b>Tipo de Documento:</b></label>
-        <select id="typedocument" name="typedocument" class="form-control" >
+        <select id="typedocument" name="typedocument" onchange="exist_dv();"  class="form-control" >
             <option value="">Selecciona Tu Documento</option>
         </select>
     </div>
 <div class="col-md-6" id="rut_natural">
     <label for="numberdocument"><span style="color: red !important;">*</span> <b>Número de Documento</b></label>
-    <input type="text" id="numberdocument" onchange="exist_dv();" name="numberdocument" minlength="8" maxlength="13" class="form-control">
+    <input type="text" id="numberdocument" name="numberdocument" minlength="8" maxlength="13" class="form-control">
 </div>
 
 <div class="col-md-6" id="dv">
