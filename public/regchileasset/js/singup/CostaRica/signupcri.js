@@ -723,6 +723,7 @@ $( document ).ready(function() {
 
   getStates();
   getBanks();
+  $('#number_account').inputmask("CR-9999999999999999999999"); 
 
         //document.getElementById("btnProfile").disabled = true;
       });

@@ -271,7 +271,7 @@
 </div>
 <div class="col-md-6" id="rut_natural">
     <label for="numberdocument"><span style="color: red !important;">*</span> <b>Número de Documento</b></label>
-    <input type="text" id="numberdocument" name="numberdocument" minlength="9" maxlength="9" class="form-control">
+    <input type="text" id="numberdocument" name="numberdocument" minlength="12" maxlength="12" class="form-control">
 </div>
 <div class="col-md-12" id="namelegalperson">
     <label for="name-legal-representative"><span style="color: red !important;">*</span> <b>Apellidos y Nombres Completos del Representate Legal</b></label>
