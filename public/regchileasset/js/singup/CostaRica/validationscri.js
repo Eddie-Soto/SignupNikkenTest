@@ -133,7 +133,7 @@ $( document ).ready(function() {
             number_account: {
                 required: true,
                 maxlength: 25,
-                number: true,
+                //number: true,
                 caract_special_es: true
             },
             name_cotitular: {
@@ -288,7 +288,7 @@ $( document ).ready(function() {
             number_account: {
                 required: "Este campo es obligatorio",
                 maxlength: "Solo puede colocar hasta 25 caracteres en este campo",
-                number: "Este campo es numerico",
+                //number: "Este campo es numerico",
                 caract_special_es: "No se permiten caracteres especiales"
             },
             name_cotitular: {
