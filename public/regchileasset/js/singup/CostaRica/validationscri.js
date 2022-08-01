@@ -132,7 +132,7 @@ $( document ).ready(function() {
             },
             number_account: {
                 required: true,
-                maxlength: 20,
+                maxlength: 23,
                 number: true,
                 caract_special_es: true
             },
