@@ -274,7 +274,7 @@ NIKKEN.</div>
 
 <div class="col-md-6" id="dv">
     <label for="verify_digit"><span style="color: red !important;">*</span> <b>Digito de Verificación</b></label>
-    <input type="text" id="verify_digit" name="verify_digit" minlength="3" maxlength="3" class="form-control">
+    <input type="text" id="verify_digit" name="verify_digit" minlength="2" maxlength="2" class="form-control">
 </div>
 <div class="col-md-12" id="namelegalperson">
     <label for="name-legal-representative"><span style="color: red !important;">*</span> <b>Apellidos y Nombres Completos del Representate Legal</b></label>
@@ -284,6 +284,10 @@ NIKKEN.</div>
 
 </div>
 <br>
+<br>
+<section id="abi" hidden="true">
+    @include('NewSignupRegional.Panama.asesorpan')
+</section>
 <br>
 <div class="row" id="personanatural">
   <div class="col-lg-6 layout-spacing">
@@ -361,10 +365,7 @@ NIKKEN.</div>
 
 </div>
 
-<br>
-<section id="abi" hidden="true">
-    @include('NewSignupRegional.Panama.asesorpan')
-</section>
+
 
 <div class="row">
     <div class="col-sm-12">
