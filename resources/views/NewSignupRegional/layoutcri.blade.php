@@ -189,8 +189,8 @@
     <script src="{{ asset('regchileasset/dropzone/custom-dropzone.js') }}"></script>
     <script src="{{ asset('regchileasset/file-upload/file-upload-with-preview.js') }}"></script>
 
-    <script language="JavaScript" type="text/javascript" src="{{ asset('regchileasset/js/singup/CostaRica/signupcri.js?v=1.1') }} "></script>
-<script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/singup/CostaRica/validationscri.js?v=1.1')}}"></script>
+    <script language="JavaScript" type="text/javascript" src="{{ asset('regchileasset/js/singup/CostaRica/signupcri.js?v=1.2') }} "></script>
+<script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/singup/CostaRica/validationscri.js?v=1.2')}}"></script>
 <!--script src="http://signup.nikkenlatam.com/regchileasset/plugins/input-mask/jquery.inputmask.bundle.min.js"></script>
     <script src="http://signup.nikkenlatam.com/regchileasset/plugins/input-mask/input-mask.js"></script-->
 <script type="text/javascript">
