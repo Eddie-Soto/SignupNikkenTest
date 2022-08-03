@@ -234,7 +234,7 @@ NIKKEN.</div>
    </div>
 
    <div class="col-md-3">
-        <label for="city"><span style="color: red !important;">*</span> <b>Ciudad:</b></label>
+        <label for="city"><span style="color: red !important;">*</span> <b>Distrito:</b></label>
         <input type="text" name="city" id="city" class="form-control">        
    </div>
 
