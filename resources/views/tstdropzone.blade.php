@@ -19,7 +19,9 @@
             <h1><form action="/file-upload"
       class="dropzone"
       id="my-awesome-dropzone">
-          
+          <div class="panel-heading">
+                    Dropzone
+                </div>
           
       </form>
             
