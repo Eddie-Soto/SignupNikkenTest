@@ -341,11 +341,46 @@ NIKKEN.</div>
 </div>
 </div>
 
+<div class="row" id="txtloaddocuments">
+    
+    <div col-md-12 id="natinfluencer">
+        <ul>
+    <p class="format-p-ul">A continuación ingresa los siguientes documentos, recuerda que <u><strong>cada uno debe venir por separado</strong></u>:</p>
+        <li>Anexar copia de Identificación (Por ambos lados)</li>
+        <li id="cuentabancaria">Anexar certificado bancario y/o encabezado del estado de cuenta bancario.<small>(debe detallarse tipo de cuenta, nombre del banco, cuenta bancaria, nombre del titular de la cuenta, de no anexar las imagenes no se guardará en esta afiliación).</small></li>
+    </ul>
+    </div>
+    <div col-md-12 id="jurinfluencer">
+        <ul>
+    <p class="format-p-ul">A continuación ingresa los siguientes documentos, recuerda que <u><strong>cada uno debe venir por separado</strong></u>:</p>
+    <li id="cuentabancaria">Anexar certificado bancario y/o encabezado del estado de cuenta bancario.<small>(debe detallarse tipo de cuenta, nombre del banco, cuenta bancaria, nombre del titular de la cuenta, de no anexar las imagenes no se guardará en esta afiliación).</small></li>
+        <li>Anexar Copia de pacto social</li>
+        <li>Anexar Copia de aviso de operación</li>
+        <li>Anexar Copia de identificación vigente del Representante Legal (Ambos lados).</li>
+        </ul>
+    </div>
+    <div col-md-12 id="natmiembro">
+        <ul>
+    <p class="format-p-ul">A continuación ingresa los siguientes documentos, recuerda que <u><strong>cada uno debe venir por separado</strong></u>:</p>
+        <li>Anexar copia de Identificación (Por ambos lados)</li>
+    </ul>
+    </div>
+    <div col-md-12 id="jurmiembro">
+        <ul>
+    <p class="format-p-ul">A continuación ingresa los siguientes documentos, recuerda que <u><strong>cada uno debe venir por separado</strong></u>:</p>
+    
+        <li>Anexar Copia de pacto social</li>
+        <li>Anexar Copia de aviso de operación</li>
+        <li>Anexar Copia de identificación vigente del Representante Legal (Ambos lados).</li>
+        </ul>
+    </div>
+</div> 
 
 
 
 
-<div class="row" >
+
+<div class="row" id="Personajuridica">
   <div class="col-md-6" id="show-playeras" class="form-control">
 
     <label for=""><span style="color: red !important;">*</span> <b>Elige la talla de tu camiseta</b></label>
