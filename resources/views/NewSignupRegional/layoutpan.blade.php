@@ -30,7 +30,7 @@
     <link href="{{ asset('regchileasset/file-upload/file-upload-with-preview.css') }}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL STYLES -->
 
-<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+
     <style>
         .flotante {
             display:scroll;
@@ -193,8 +193,6 @@
 <!--script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/singup/Ecuador/validationspan.js?v=1.0')}}"></script-->
 <!--script src="http://signup.nikkenlatam.com/regchileasset/plugins/input-mask/jquery.inputmask.bundle.min.js"></script>
     <script src="http://signup.nikkenlatam.com/regchileasset/plugins/input-mask/input-mask.js"></script-->
-        
-<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 <script type="text/javascript">
     var firstUpload = new FileUploadWithPreview('myFirstImage1');
     var secondUpload = new FileUploadWithPreview('myFirstImage2');

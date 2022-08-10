@@ -12,6 +12,8 @@
 */
 
 
+Route::view('/dorpzone', 'tstdropzone');
+
 Route::get('/', function () {
     return view('welcome');
 });
