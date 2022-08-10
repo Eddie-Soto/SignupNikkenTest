@@ -17,7 +17,7 @@
       class="dropzone"
       id="my-awesome-dropzone">
           
-          <input type="file" name="file" />
+          
       </form>
             
         </div>
