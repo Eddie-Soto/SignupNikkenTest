@@ -342,7 +342,11 @@ NIKKEN.</div>
 </div>
 
 <div class="row" id="txtloaddocuments">
-    
+    <form action="/file-upload"
+      class="dropzone"
+      id="my-awesome-dropzone">
+          <input type="file" name="file" />
+      </form>
     <div col-md-12 id="natinfluencer">
         <ul>
     <p class="format-p-ul">A continuación ingresa los siguientes documentos, recuerda que <u><strong>cada uno debe venir por separado</strong></u>:</p>
@@ -542,7 +546,7 @@ function limpiar(){
     input.type = 'file';
 
 }
-
+const { Dropzone } = require("dropzone");
 </script>
 <script type="text/javascript">
 
