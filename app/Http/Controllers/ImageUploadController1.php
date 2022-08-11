@@ -18,6 +18,9 @@ class ImageUploadController extends Controller
         $imageName = $image->getClientOriginalName();
         $image->move(public_path('images'), $imageName);
 
+        echo $image;
+        exit;
+
         $imageUpload = new ImageUpload();
         $imageUpload->filename = $imageName;
         $imageUpload->save();
