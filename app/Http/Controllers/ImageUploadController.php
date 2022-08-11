@@ -14,7 +14,7 @@ class ImageUploadController extends Controller
 
     public function store(Request $request)
     {
-        $image = $request->file('file');
+        $image = $request->file('dropzone');
         $imageName = $image->getClientOriginalName();
         $image->move(public_path('images'), $imageName);
 
