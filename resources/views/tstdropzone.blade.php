@@ -27,7 +27,7 @@
                 paramName: "file", // The name that will be used to transfer the file
                 maxFilesize: 12,
                 renameFile: function (file) {
-                    alert(file);
+                    //alert(file);
                     var dt = new Date();
                     var time = dt.getTime();
                     return time + file.name;
@@ -60,6 +60,7 @@
                     console.log(response);
                 },
                 error: function (file, response) {
+                    console.log('hubo un error');
                     return false;
                 }
             };
