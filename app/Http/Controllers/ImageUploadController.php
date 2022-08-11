@@ -21,8 +21,7 @@ class ImageUploadController extends Controller
     {
         $image = $request->file('file');
 
-        echo $image;
-        exit;
+        
         $imageName = $image->getClientOriginalName();
         $image->move(public_path('images'), $imageName);
 
