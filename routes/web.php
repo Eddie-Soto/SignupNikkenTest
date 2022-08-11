@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('upload', 'ImageUploadController@upload');
+Route::post('upload/store', 'ImageUploadController@store');
+Route::post('delete', 'ImageUploadController@delete');
 
 Route::view('/dorpzone', 'tstdropzone');
 
