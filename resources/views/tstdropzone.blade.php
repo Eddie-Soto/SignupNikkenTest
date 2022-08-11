@@ -13,9 +13,9 @@
 
     <h3 class="text-center" style="margin-top: 50px;">Laravel Multiple Image Upload Using DropzoneJS</h3><br>
     <form method="post" action="{{url('upload/store')}}" enctype="multipart/form-data"
-          class="dropzone" id="dropzone">
+          class="dropzone" id="dropzone" name="file">
         @csrf
-        <input type="files" name="file" id="file" class="form-control" multiple accept="image/jpeg, image/png, image/jpg" />
+        
         <button type="submit" class="btn btn-outline-dark">Enviar</button>
     </form>
     <script type="text/javascript">
