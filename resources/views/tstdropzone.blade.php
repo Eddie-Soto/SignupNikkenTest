@@ -24,9 +24,10 @@
     <script type="text/javascript">
         Dropzone.options.dropzone =
             {
-                paramName: "file", // The name that will be used to transfer the file
+                paramName: "fileone", // The name that will be used to transfer the file
                 maxFilesize: 12,
                 renameFile: function (file) {
+                    alert(file);
                     var dt = new Date();
                     var time = dt.getTime();
                     return time + file.name;
