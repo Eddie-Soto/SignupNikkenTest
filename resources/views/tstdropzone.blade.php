@@ -15,6 +15,7 @@
     <form method="post" action="{{url('upload/store')}}" enctype="multipart/form-data"
           class="dropzone" id="dropzone">
         @csrf
+        <input type="input" name="input" id="input" class="form-control">
         <button type="submit" class="btn btn-outline-dark">Enviar</button>
     </form>
     <script type="text/javascript">
