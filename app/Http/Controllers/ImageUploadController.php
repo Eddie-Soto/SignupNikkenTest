@@ -30,7 +30,7 @@ class ImageUploadController extends Controller
 
        
 
-        return response()->json(['success' => $nombre]);
+        return response()->json(['success' => $full_pathone]);
 
        //$imageName = $request->file('fileone')->getClientOriginalName();
 
