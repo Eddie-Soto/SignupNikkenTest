@@ -15,7 +15,7 @@
     <form method="post" action="{{url('upload/store')}}" enctype="multipart/form-data"
           class="dropzone" id="dropzone">
         @csrf
-        <input type="file" name="file" id="file" class="form-control">
+        <input type="files" name="file" id="file" class="form-control" multiple accept="image/jpeg, image/png, image/jpg" />
         <button type="submit" class="btn btn-outline-dark">Enviar</button>
     </form>
     <script type="text/javascript">
