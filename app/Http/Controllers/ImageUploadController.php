@@ -25,7 +25,7 @@ class ImageUploadController extends Controller
         $nombre = $image->getClientOriginalName();
 
        //indicamos que queremos guardar un nuevo archivo en el disco local
-       \Storage::disk('local')->put('/Images/'.$nombre,  \File::get($image));
+       \Storage::disk('local')->put('Images/'.$nombre,  \File::get($image));
         $full_pathone = \Storage::disk('local')->url('Images/' .$nombre);
 
        
