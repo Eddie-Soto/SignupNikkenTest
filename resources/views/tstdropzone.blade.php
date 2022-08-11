@@ -19,7 +19,7 @@
                         Arrastra las imagenes aquí
                     </div>
                     <div class="dropzone-previews"></div>
-        <button type="submit" class="btn btn-outline-dark">Enviar</button>
+        
     </form>
     <script type="text/javascript">
         Dropzone.options.dropzone =
@@ -30,6 +30,7 @@
                     //alert(file);
                     var dt = new Date();
                     var time = dt.getTime();
+                    //return time + file.name;
                     return time + file.name;
                 },
                 acceptedFiles: ".jpeg,.jpg,.png,.gif",
