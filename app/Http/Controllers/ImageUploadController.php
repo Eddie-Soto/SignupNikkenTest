@@ -28,8 +28,9 @@ class ImageUploadController extends Controller
        \Storage::disk('local')->put('/Images/'.$nombre,  \File::get($image));
         $full_pathone = \Storage::disk('local')->url('Images/' .$nombre);
 
-        echo $imageName;
-        exit;
+       
+
+        return response()->json(['success' => $nombre]);
 
        //$imageName = $request->file('fileone')->getClientOriginalName();
 
