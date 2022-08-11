@@ -26,7 +26,7 @@ class ImageUploadController extends Controller
 
        //indicamos que queremos guardar un nuevo archivo en el disco local
        \Storage::disk('local')->put($nombre,  \File::get($image));
-        $full_pathone = \Storage::disk('local')->url('/SignupPan/' .$nombre);
+        $full_pathone = \Storage::disk('local')->url('SignupPan/' .$nombre);
 
 echo $full_pathone;
 exit;
