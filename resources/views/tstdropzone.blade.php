@@ -13,7 +13,7 @@
 
     <h3 class="text-center" style="margin-top: 50px;">Laravel Multiple Image Upload Using DropzoneJS</h3><br>
     <form method="post" action="{{url('upload/store')}}" enctype="multipart/form-data"
-          class="dropzone" id="dropzone" name="file" files="true">
+          class="dropzone" id="dropzone"  files="true">
         @csrf
         <div class="dz-message" style="height:100px;">
                         Arrastra las imagenes aquí
@@ -24,6 +24,7 @@
     <script type="text/javascript">
         Dropzone.options.dropzone =
             {
+                paramName: "file", // The name that will be used to transfer the file
                 maxFilesize: 12,
                 renameFile: function (file) {
                     var dt = new Date();
