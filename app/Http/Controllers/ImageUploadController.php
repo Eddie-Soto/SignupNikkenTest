@@ -54,7 +54,8 @@ exit;
     {
         $filename = $request->get('filename');
        // ImageUpload::where('filename', $filename)->delete();
-        $path = \Storage::disk('local')->url('Images/' .$nombre);
+        //$path = \Storage::disk('local')->url('Images/' .$filename);
+        $path = public_path('images/'.$nombre);
         if (file_exists($path)) {
             unlink($path);
         }
