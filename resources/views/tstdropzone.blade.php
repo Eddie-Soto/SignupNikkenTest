@@ -31,7 +31,7 @@
                     var dt = new Date();
                     var time = dt.getTime();
                     //return time + file.name;
-                    return time + file.name;
+                    return file.name;
                 },
                 acceptedFiles: ".jpeg,.jpg,.png,.gif",
                 addRemoveLinks: true,
