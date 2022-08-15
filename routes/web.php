@@ -49,3 +49,5 @@ Route::get('/profile/ecu', 'SignupRegionalController@ecuador');
 Route::get('/profile/cri', 'SignupRegionalController@costarica');
 
 Route::get('/profile/pan', 'SignupRegionalController@panama');
+
+Route::get('/profile/col', 'SignupRegionalController@colombia');
