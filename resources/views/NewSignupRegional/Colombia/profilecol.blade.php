@@ -225,7 +225,7 @@
 <div class="row">
 
     <div class="col-md-3">
-        <label for="state"><span style="color: red !important;">*</span> <b>Provincia:</b></label>
+        <label for="state"><span style="color: red !important;">*</span> <b>Departamento:</b></label>
         <select id="state"  name="state" class="form-control">
            {{-- <option value="" selected>{{ __('auth.selreg') }}</option>--}}
        </select>
