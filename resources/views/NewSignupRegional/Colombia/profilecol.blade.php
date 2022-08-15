@@ -51,7 +51,7 @@
     
 
 
-    <form action="/saveecu" method="post" id="formProfile"  accept-charset="UTF-8"  enctype="multipart/form-data" class="form-control" border="none" onKeypress="if(event.keyCode == 13) event.returnValue = false;">
+    <form action="/savecol" method="post" id="formProfile"  accept-charset="UTF-8"  enctype="multipart/form-data" class="form-control" border="none" onKeypress="if(event.keyCode == 13) event.returnValue = false;">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       
       <div class="row">
@@ -154,9 +154,9 @@
      <label for="kit"><span style="color: red !important;">*</span> <b>Selecciona Tu Kit de Inicio</b></label>
      <select class="form-control" name="kit" id="kit" onchange="Ocultar_playeras(); getDataShirt();">
         <option value="">Selecciona un Kit de inicio</option>
-        <option value="5006">5006 KIT CLÁSICO $ 100.00</option>
-        <option value="5023">5023 KIT INFLUENCER  PI WATER $ 264.00</option>
-        <option value="5024">5024 KIT INFLUENCER  WATERFALL $ 498.00</option>
+        <option value="5006">5006 KIT CLÁSICO $ 384,800.00</option>
+        <option value="5023">5023 KIT INFLUENCER  PI WATER $ 795,000.00</option>
+        <option value="5024">5024 KIT INFLUENCER  WATERFALL $ 1.580.000.00</option>
         
 
     </select>
