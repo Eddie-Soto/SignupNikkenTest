@@ -404,9 +404,7 @@ NIKKEN.</div>
 
 <br>
 <br>
-<section id="upload_documents">
-    @include('tstdropzone')
-</section>
+
 
 <div class="row">
     <div class="col-sm-12">
@@ -512,7 +510,7 @@ NIKKEN.</div>
 
 </form>
 
-s
+
 
 <script type="text/javascript">
 
