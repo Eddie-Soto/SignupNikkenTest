@@ -21,6 +21,7 @@
                     <div class="dropzone-previews"></div>
         
     </form>
+</div>
     <script type="text/javascript">
         Dropzone.options.dropzone =
             {

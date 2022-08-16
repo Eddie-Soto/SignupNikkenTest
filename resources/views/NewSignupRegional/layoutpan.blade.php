@@ -25,9 +25,7 @@
     <link href="{{asset('regchileasset/css/jquery-ui.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('regchileasset/css/wbn-datepicker.css')}}" rel="stylesheet" type="text/css" />
     <!-- BEGIN PAGE LEVEL STYLES -->
-    <link href="{{ asset('regchileasset/dropzone/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('regchileasset/dropzone/basic.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('regchileasset/file-upload/file-upload-with-preview.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/min/dropzone.min.css">
     <!-- END PAGE LEVEL STYLES -->
 
 
@@ -185,9 +183,8 @@
     <script src="{{ asset('regchileasset/js/jquery.blockUI.min.js') }}"></script>
     <script src="{{ asset('regchileasset/js/app.js') }}"></script>
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script src="{{ asset('regchileasset/dropzone/dropzone.min.js') }}"></script>
-    <script src="{{ asset('regchileasset/dropzone/custom-dropzone.js') }}"></script>
-    <script src="{{ asset('regchileasset/file-upload/file-upload-with-preview.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/dropzone.js"></script>
 
     <script language="JavaScript" type="text/javascript" src="{{ asset('regchileasset/js/singup/Panama/signuppan.js?v=1.0') }} "></script>
 <!--script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/singup/Ecuador/validationspan.js?v=1.0')}}"></script-->
