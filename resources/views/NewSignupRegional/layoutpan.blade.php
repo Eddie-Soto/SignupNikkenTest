@@ -191,9 +191,7 @@
 <!--script src="http://signup.nikkenlatam.com/regchileasset/plugins/input-mask/jquery.inputmask.bundle.min.js"></script>
     <script src="http://signup.nikkenlatam.com/regchileasset/plugins/input-mask/input-mask.js"></script-->
 <script type="text/javascript">
-    var firstUpload = new FileUploadWithPreview('myFirstImage1');
-    var secondUpload = new FileUploadWithPreview('myFirstImage2');
-    var threeUpload = new FileUploadWithPreview('myFirstImage3');
+   
          //Inicializamos el tooltip
          $('[data-toggle="tooltip"]').tooltip();
          $('.menu-reg').css('display', 'block');
