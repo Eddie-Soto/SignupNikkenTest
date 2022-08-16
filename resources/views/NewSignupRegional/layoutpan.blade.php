@@ -165,7 +165,7 @@
     </div>
     <br>
 </body>
-<script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/jquery-3.1.1.min.js')}}"></script>
+<!--script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/jquery-3.1.1.min.js')}}"></script-->
 
 <script src="{{asset('regchileasset/js/popper.min.js')}}"></script>
 <script src="{{asset('regchileasset/js/bootstrap.min.js')}}"></script>
