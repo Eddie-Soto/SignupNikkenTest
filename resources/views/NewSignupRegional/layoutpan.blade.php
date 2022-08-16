@@ -27,9 +27,7 @@
     <!-- BEGIN PAGE LEVEL STYLES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/min/dropzone.min.css">
     <!-- END PAGE LEVEL STYLES -->
-<script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/jquery-3.1.1.min.js')}}"></script-->
-<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/dropzone.js"></script>
+
 
     <style>
         .flotante {
@@ -167,13 +165,14 @@
     </div>
     <br>
 </body>
+<script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/jquery-3.1.1.min.js')}}"></script>
 
 <script src="{{asset('regchileasset/js/popper.min.js')}}"></script>
 <script src="{{asset('regchileasset/js/bootstrap.min.js')}}"></script>
 
 <script src="{{asset('regchileasset/plugins/sweetalerts/sweetalert2.min.js')}}"></script>
 <script src="{{asset('regchileasset/plugins/sweetalerts/custom-sweetalert.js')}}"></script>
-<!--script src="{{asset('regchileasset/js/jquery-ui.js')}}"></script-->
+<script src="{{asset('regchileasset/js/jquery-ui.js')}}"></script>
 
 
 <script src="{{asset('regchileasset/js/jquery.validate.js')}}"></script>
@@ -184,57 +183,22 @@
     <script src="{{ asset('regchileasset/js/jquery.blockUI.min.js') }}"></script>
     <script src="{{ asset('regchileasset/js/app.js') }}"></script>
     <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/dropzone.js"></script>
     
 
     <script language="JavaScript" type="text/javascript" src="{{ asset('regchileasset/js/singup/Panama/signuppan.js?v=1.0') }} "></script>
 <!--script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/singup/Ecuador/validationspan.js?v=1.0')}}"></script-->
 <!--script src="http://signup.nikkenlatam.com/regchileasset/plugins/input-mask/jquery.inputmask.bundle.min.js"></script>
     <script src="http://signup.nikkenlatam.com/regchileasset/plugins/input-mask/input-mask.js"></script-->
-<script type="text/javascript">
-        Dropzone.options.dropzone =
-            {
-                paramName: "file", // The name that will be used to transfer the file
-                maxFilesize: 12,
-                renameFile: function (file) {
-                    //alert(file);
-                    var dt = new Date();
-                    var time = dt.getTime();
-                    //return time + file.name;
-                    return file.name;
-                },
-                acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                addRemoveLinks: true,
-                timeout: 50000,
-                removedfile: function (file) {
-                    var name = file.upload.filename;
-                    $.ajax({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                        },
-                        type: 'POST',
-                        url: '{{ url("delete") }}',
-                        data: {filename: name},
-                        success: function (data) {
-                            console.log("File has been successfully removed!!");
-                        },
-                        error: function (e) {
-                            console.log(e);
-                        }
-                    });
-                    var fileRef;
-                    return (fileRef = file.previewElement) != null ?
-                        fileRef.parentNode.removeChild(file.previewElement) : void 0;
-                },
-
-                success: function (file, response) {
-                    console.log(response);
-                },
-                error: function (file, response) {
-                    console.log('hubo un error');
-                    return false;
-                }
-            };
-    </script>
+<!--script type="text/javascript">
+    var firstUpload = new FileUploadWithPreview('myFirstImage1');
+    var secondUpload = new FileUploadWithPreview('myFirstImage2');
+    var threeUpload = new FileUploadWithPreview('myFirstImage3');
+         //Inicializamos el tooltip
+         $('[data-toggle="tooltip"]').tooltip();
+         $('.menu-reg').css('display', 'block');
+         $('.count-down').css('display', 'none');
+     </script-->
      
      <!--script>
         $('.wbn-datepicker').datepicker()

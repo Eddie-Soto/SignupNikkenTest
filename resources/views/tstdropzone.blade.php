@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--!DOCTYPE html-->
+<!--html lang="en">
 <head>
-    <title>Laravel Multiple Image Upload Using DropzoneJS</title>
-    <meta name="_token" content="{{csrf_token()}}"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/min/dropzone.min.css">
+    <title>Laravel Multiple Image Upload Using DropzoneJS</title-->
+   
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"-->
+    <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/min/dropzone.min.css"-->
     <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script-->
-    <script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/jquery-3.1.1.min.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/dropzone.js"></script>
-</head>
-<body>
+    <!--script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/jquery-3.1.1.min.js')}}"></script-->
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/dropzone.js"></script-->
+<!--/head>
+<body-->
+
 <div class="container">
 
     <h3 class="text-center" style="margin-top: 50px;">Laravel Multiple Image Upload Using DropzoneJS</h3><br>
@@ -22,7 +23,7 @@
                     <div class="dropzone-previews"></div>
         
     </form>
-</div>
+
     <script type="text/javascript">
         Dropzone.options.dropzone =
             {
@@ -68,5 +69,5 @@
                 }
             };
     </script>
-</body>
-</html>
+<!--/body>
+</html-->

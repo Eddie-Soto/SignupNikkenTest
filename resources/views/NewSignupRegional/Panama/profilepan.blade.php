@@ -376,19 +376,7 @@ NIKKEN.</div>
     </div>
 </div> 
 
-<div class="container">
 
-    <h3 class="text-center" style="margin-top: 50px;">Laravel Multiple Image Upload Using DropzoneJS</h3><br>
-    <form method="post" action="{{url('upload/store')}}" enctype="multipart/form-data"
-          class="dropzone" id="dropzone"  files="true">
-        @csrf
-        <div class="dz-message" style="height:100px;">
-                        Arrastra las imagenes aquí
-                    </div>
-                    <div class="dropzone-previews"></div>
-        
-    </form>
-</div>
 
 
 
@@ -414,7 +402,11 @@ NIKKEN.</div>
 
 </div>
 
-
+<br>
+<br>
+<section id="upload_documents">
+    @include('tstdropzone')
+</section>
 
 <div class="row">
     <div class="col-sm-12">
@@ -520,7 +512,7 @@ NIKKEN.</div>
 
 </form>
 
-
+s
 
 <script type="text/javascript">
 
