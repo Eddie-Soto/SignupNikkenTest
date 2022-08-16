@@ -27,7 +27,9 @@
     <!-- BEGIN PAGE LEVEL STYLES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/min/dropzone.min.css">
     <!-- END PAGE LEVEL STYLES -->
-
+<script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/jquery-3.1.1.min.js')}}"></script-->
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/dropzone.js"></script>
 
     <style>
         .flotante {
@@ -165,9 +167,7 @@
     </div>
     <br>
 </body>
-<!--script language="JavaScript" type="text/javascript" src="{{asset('regchileasset/js/jquery-3.1.1.min.js')}}"></script-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/dropzone.js"></script>
+
 <script src="{{asset('regchileasset/js/popper.min.js')}}"></script>
 <script src="{{asset('regchileasset/js/bootstrap.min.js')}}"></script>
 
