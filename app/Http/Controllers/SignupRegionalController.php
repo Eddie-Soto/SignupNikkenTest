@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\ImageUpload;
 use Illuminate\Http\Request;
 use App;
 Use Redirect;

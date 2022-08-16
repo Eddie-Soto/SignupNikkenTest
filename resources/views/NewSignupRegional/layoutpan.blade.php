@@ -191,12 +191,50 @@
 <!--script src="http://signup.nikkenlatam.com/regchileasset/plugins/input-mask/jquery.inputmask.bundle.min.js"></script>
     <script src="http://signup.nikkenlatam.com/regchileasset/plugins/input-mask/input-mask.js"></script-->
 <script type="text/javascript">
-   
-         //Inicializamos el tooltip
-         $('[data-toggle="tooltip"]').tooltip();
-         $('.menu-reg').css('display', 'block');
-         $('.count-down').css('display', 'none');
-     </script>
+        Dropzone.options.dropzone =
+            {
+                paramName: "file", // The name that will be used to transfer the file
+                maxFilesize: 12,
+                renameFile: function (file) {
+                    //alert(file);
+                    var dt = new Date();
+                    var time = dt.getTime();
+                    //return time + file.name;
+                    return file.name;
+                },
+                acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                addRemoveLinks: true,
+                timeout: 50000,
+                removedfile: function (file) {
+                    var name = file.upload.filename;
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                        },
+                        type: 'POST',
+                        url: '{{ url("delete") }}',
+                        data: {filename: name},
+                        success: function (data) {
+                            console.log("File has been successfully removed!!");
+                        },
+                        error: function (e) {
+                            console.log(e);
+                        }
+                    });
+                    var fileRef;
+                    return (fileRef = file.previewElement) != null ?
+                        fileRef.parentNode.removeChild(file.previewElement) : void 0;
+                },
+
+                success: function (file, response) {
+                    console.log(response);
+                },
+                error: function (file, response) {
+                    console.log('hubo un error');
+                    return false;
+                }
+            };
+    </script>
      
      <!--script>
         $('.wbn-datepicker').datepicker()
