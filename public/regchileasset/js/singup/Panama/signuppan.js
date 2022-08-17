@@ -793,7 +793,7 @@ function verify_terms(){
     if(!$("input[id='terms']").is(':checked')){
         swal({
             title: 'Error',
-            text: terminos,
+            text: 'Debes aceptar los temrinos y condiciones',
             type: 'error',
             padding: '2em'
         })
