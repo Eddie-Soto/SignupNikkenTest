@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ImageUpload;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class ImageUploadController extends Controller
 {
     /**
@@ -19,6 +19,19 @@ class ImageUploadController extends Controller
 
     public function store(Request $request)
     {
+
+        if ($request->has('file') && request()->imgPerf) {
+            $filename = request()->imgPerf->getClientOriginalName();
+            $disk = \storage::disk('gcs');
+            $disk->put('MyNIKKEN_src/' . $filename, file_get_contents(request()->imgPerf));
+            $url = $disk->url('MyNIKKEN_src/' . $filename);
+            $full_path = $url;
+
+            echo $full_path;
+            exit;
+        }
+
+        /* good code
         $completecode=1234;
         $image = $request->file('file');
 
@@ -37,6 +50,10 @@ exit;
        
 
         return response()->json(['success' => $full_pathone]);
+*/
+
+
+
 
        //$imageName = $request->file('fileone')->getClientOriginalName();
 
