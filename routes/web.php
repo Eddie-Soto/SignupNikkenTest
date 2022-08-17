@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/subir', function () {
+    return view('uploadfiles');
+});
+
 Route::get('/codegood', 'SignupRegionalController@Codegood');
 Route::get('/searchsponsorValid','SignupRegionalController@searchsponsorValid');
 
