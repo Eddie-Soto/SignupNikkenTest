@@ -608,7 +608,7 @@ public function storeCostaRica(Request $request){
 
 
       $urlscompletes='';
-
+/*
       if ($request->hasFile('fileone') && $request->fileone) {
 
        $disk = \Storage::disk('gcs');
@@ -647,7 +647,7 @@ public function storeCostaRica(Request $request){
     $signupfiles = $conection->select("INSERT INTO  nikkenla_incorporation.signupfiles (sap_code,name,filepath,country_id,created_at) VALUES ('$completecode','$titular_name','$urlscompletes','4','$creacion')");
 
     \DB::disconnect('mysql_incorp');
-        
+        */
 
     $conection = \DB::connection('mysql_las');
 
