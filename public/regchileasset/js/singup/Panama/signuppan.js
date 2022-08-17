@@ -684,6 +684,45 @@ function getDocuments(){
         });
       }
 
+      function typePersonandIncorporate(){
+        var type_person = $('#type_per').val();
+        var type_incorporate = $('input:radio[name=type_inc]:checked').val();
+        alert(type_person);
+         alert(type_incorporate);
+        if (type_incorporate == 1 && type_person == 1) {//ci y natural
+          document.getElementById('natinfluencer').removeAttribute('hidden',true);
+          document.getElementById('jurinfluencer').setAttribute('hidden',true);
+          document.getElementById('natmiembro').setAttribute('hidden',true);
+          document.getElementById('jurmiembro').setAttribute('hidden',true);
+          //document.getElementById('txtloaddocuments').innerHTML = '';
+
+        }else if (type_incorporate == 1 && type_person == 0) { //ci y juridica
+          document.getElementById('jurinfluencer').removeAttribute('hidden',true);
+          document.getElementById('natinfluencer').setAttribute('hidden',true);
+          document.getElementById('natmiembro').setAttribute('hidden',true);
+          document.getElementById('jurmiembro').setAttribute('hidden',true);
+         // document.getElementById('txtloaddocuments').innerHTML = '';
+
+        }else if (type_incorporate == 0 && type_person == 1) { //club y natural
+          document.getElementById('natmiembro').removeAttribute('hidden',true);
+          document.getElementById('natinfluencer').setAttribute('hidden',true);
+          document.getElementById('jurinfluencer').setAttribute('hidden',true);
+          document.getElementById('jurmiembro').setAttribute('hidden',true);
+          //document.getElementById('txtloaddocuments').innerHTML = '';
+
+        }else if (type_incorporate == 0 && type_person == 0) { //club y juridica
+          document.getElementById('jurmiembro').removeAttribute('hidden',true);
+          document.getElementById('natinfluencer').setAttribute('hidden',true);
+          document.getElementById('jurinfluencer').setAttribute('hidden',true);
+          document.getElementById('natmiembro').setAttribute('hidden',true);
+          document.getElementById('txtloaddocuments').innerHTML = '';
+        }else{
+            document.getElementById('txtloaddocuments').innerHTML = '<p class="format-p-ul">Asegurate de haber elegido el tipo de incorporación<u><strong>así como el tipo de persona que correspanda</strong></u>:</p>';
+        }
+
+
+      }
+
       function getTypePerson(value){
   if(value == "1") //persona natural
   {

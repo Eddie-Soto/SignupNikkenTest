@@ -170,7 +170,7 @@ NIKKEN.</div>
 <div class="row">
    <div class="col-md-6">
       <label for="type_per"><span style="color: red !important;">*</span> <b>TIPO DE PERSONA:</b></label>
-      <select id="type_per" name="type_per" class="form-control" onchange="getDocuments(); getTypePerson(this.value); ">
+      <select id="type_per" name="type_per" class="form-control" onchange="getDocuments(); getTypePerson(this.value); typePersonandIncorporate();">
         <option value=""></option>
         <option value="1">Persona Natural</option>
         <option value="0">Persona Jurídica</option>
@@ -289,7 +289,7 @@ NIKKEN.</div>
     @include('NewSignupRegional.Panama.asesorpan')
 </section>
 <br>
-<div class="row" id="personanatural">
+<div class="row" id="personanatural" hidden>
   <div class="col-lg-6 layout-spacing">
     <div class="statbox widget box box-shadow">
         <div class="widget-header">
@@ -315,7 +315,7 @@ NIKKEN.</div>
     </div>
 </div>
 
-<div class="col-lg-6 layout-spacing">
+<div class="col-lg-6 layout-spacing" hidden> 
     <div class="statbox widget box box-shadow">
         <div class="widget-header">
             <div class="row">
