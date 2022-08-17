@@ -51,7 +51,7 @@
     
 
 
-    <form action="/saveecu" method="post" id="formProfile"  accept-charset="UTF-8"  enctype="multipart/form-data" class="form-control" border="none" onKeypress="if(event.keyCode == 13) event.returnValue = false;">
+    <form action="/savecri" method="post" id="formProfile"  accept-charset="UTF-8"  enctype="multipart/form-data" class="form-control" border="none" onKeypress="if(event.keyCode == 13) event.returnValue = false;">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       
       <div class="row">

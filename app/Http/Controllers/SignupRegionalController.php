@@ -471,6 +471,230 @@ function Assigned_sponsor($name,$email,$phone,$country,$state,$platform,$user)
 	}
 }
 
+public function storeCostaRica(Request $request){
+    $id = date("ymd") . date("His") . rand(1, 99);
+
+    $creacion = date("Y-m-d H:i:s");
+    $country = $request->input('country').trim("");
+    $type_incorporation = $request->input('type_inc').trim("");
+    $kit= $request->input('kit').trim("");
+    $kit3= $request->input('kit-cb').trim("");
+    $type_per = $request->input('type_per').trim("");
+    $birthdate = $request->input('date_born').trim("");
+    $birthdate = explode('-', $birthdate);
+    $birthdate = $birthdate[2].'-'.$birthdate[1].'-'.$birthdate[0];
+    $titular_name = $request->input('name_titular').trim("");
+    $titular_name_ape = $request->input('apename').trim("");
+    $titular_name=$titular_name.", ".$titular_name_ape;
+    $titular_name = strtoupper($titular_name);
+    $titular_name_empresa = $request->input('name-legal-representative').trim("");
+    $titular_name_empresa = strtoupper($titular_name_empresa);
+    $name="";
+    
+    if ($type_per == "0") {
+        $name=$titular_name_empresa;
+
+        echo "es empresa".$name;
+
+        
+    }elseif ($type_per == "1") {
+        $name=$titular_name;
+        echo "es natural".$name;
+    }
+    elseif ($type_per == "2") {
+        $name=$titular_name;
+        echo "es natural con negocio".$name;
+    }
+    else{
+        echo "no encontro el tipo de persona";
+    }
+
+    $email = $request->input('email').trim("");
+
+    $email=strtolower($email);
+    $gender = $request->input('gender').trim("");
+    $cel = $request->input('cel').trim("");
+    $cel_jur = $request->input('cel_jur').trim("");
+    $state = $request->input('state').trim("");
+    $state= str_replace("%", " ", $state);
+    $colony = $request->input('colony').trim("");
+    $colony = str_replace("%", " ", $colony);
+    $city = $request->input('city').trim("");
+    $city = str_replace("%", " ", $city);
+    $address = $request->input('adress').trim("");
+    $typedocument = $request->input('typedocument').trim("");
+    $numberdocument = $request->input('numberdocument').trim("");
+    $playera=$request->input('shirt-size').trim("");
+    $talla="";
+    
+    $type_sponsor = $request->input('type_sponsor').trim("");
+    if($type_sponsor == "3"){
+                 $sponsor = $this->Assigned_sponsor('Ciudadano Ecuador',$email,$cel,$country,$state,$platform,$user);
+                 if($sponsor == 0){  
+                    $sponsor = 0;
+                }
+                //$sponsor = Assigned_sponsor($titular_name,$email,$cel,$country,$state,$platform,$user);
+            }
+            else{
+                $sponsor = $request->input('code-sponsor').trim("");
+                if($sponsor == 0){  
+                    $sponsor = 0;
+                }
+            }
+    $bank_name = $request->input('bank_name').trim("");
+    $type_account = $request->input('type_Account').trim("");
+    if ($bank_name == "" and $type_account == "") {
+        $bank_name = 0;
+        $type_account = 0;
+    }
+    $numer_account = $request->input('number_account').trim("");
+    if ($bank_name == "" and $type_account == "") {
+        $bank_name = 0;
+        $type_account = 0;
+    }
+    
+
+    $ckeck_cotitular = $request->input('info_cotitular').trim("");
+    $cotitular_name = $request->input('name_cotitular').trim("");
+   // $rut_cotitular = $request->input('rut_cotitular').trim("");
+    $typedocumentcoti = $request->input('typedocumentcoti').trim("");
+    if ($typedocumentcoti == "") {
+        $typedocumentcoti = 0;
+    }
+    $numer_document_cotitular = $request->input('numer_document_cotitular').trim("");
+
+    $conection = \DB::connection('mysql_incorp');
+
+    $consecutive = $conection->select("SELECT code FROM nikkenla_incorporation.consecutive_codes_test order by code DESC limit 1");
+
+    \DB::disconnect('mysql_incorp');
+
+    $nuevocode = $consecutive[0]->code + 2;
+    $last_digits="03";
+    $completecode = $nuevocode.$last_digits;
+    $conection = \DB::connection('mysql_incorp');
+    $consecutive = $conection->insert("INSERT INTO nikkenla_incorporation.consecutive_codes_test (code) VALUES ('$nuevocode')");
+    \DB::disconnect('mysql_incorp');
+    $ip = $_SERVER["REMOTE_ADDR"];
+    $browser = $_SERVER['HTTP_USER_AGENT'];
+    $type_letter = "";
+    if($type_incorporation == "1"){
+        $type_letter = "CI";
+    }
+    else{
+        $type_letter = "CLUB";
+    }
+
+    if ($kit == 5002 || $kit=="5002") {
+
+        $conection = \DB::connection('mysql_incorp');
+        $user_promotion_exist = $conection->select("SELECT code_ticket FROM nikkenla_incorporation.user_promotion_kit_TEST where code_ticket = '$boleto'");
+        \DB::disconnect('mysql_incorp');
+
+        if ($user_promotion_exist) {
+            echo "El boleto".$boleto."ya fue utilizado";
+            exit;
+        }
+
+        $conection = \DB::connection('mysql_incorp');
+        $user_promotion = $conection->insert("INSERT INTO nikkenla_incorporation.user_promotion_kit_TEST (code_sponsor, code_redeem, kit, status, country_id, code_ticket, created_at) VALUES ('$sponsor','$completecode','$kit','2','10','$boleto','$creacion')");
+        \DB::disconnect('mysql_incorp');
+    }
+    
+
+    $fileone = $request->file('fileone');
+    $filetwo = $request->file('filetwo');
+
+
+
+      $urlscompletes='';
+
+      if ($request->hasFile('fileone') && $request->fileone) {
+
+       $disk = \Storage::disk('gcs');
+         
+       $name1 = $request->file('fileone')->getClientOriginalName();
+       $disk->put('CHL/' . $name1,file_get_contents($request->file('fileone')->getPathName()));
+       $full_pathone = $disk->url('CHL/' .$name1);
+
+
+      $urlscompletes=$full_pathone;
+      
+      
+    }
+
+
+    if ($request->hasFile('filetwo') && $request->filetwo) {
+
+
+         $disk = \Storage::disk('gcs');
+         
+       $name2 = $request->file('filetwo')->getClientOriginalName();
+       $disk->put('CHL/' . $name2,file_get_contents($request->file('filetwo')->getPathName()));
+       $full_pathtwo = $disk->url('CHL/' .$name2);
+      $urlscompletes=$full_pathone.";".$full_pathtwo;
+     
+      
+      
+    }
+
+    
+
+
+
+    $conection = \DB::connection('mysql_incorp');
+
+    $signupfiles = $conection->select("INSERT INTO  nikkenla_incorporation.signupfiles (sap_code,name,filepath,country_id,created_at) VALUES ('$completecode','$titular_name','$urlscompletes','4','$creacion')");
+
+    \DB::disconnect('mysql_incorp');
+        
+
+    $conection = \DB::connection('mysql_las');
+
+    $signupfiles = $conection->insert("INSERT INTO nikkenla_incorporation.contracts_test (id_contract, country, code, name, type, type_incorporate, type_sponsor, sponsor, email, cellular, birthday, address, residency_one, residency_two, residency_three, residency_four, name_legal_representative, type_document, number_document, name_cotitular, type_document_cotitular, number_document_cotitular, bank, bank_type, number_account, number_clabe, rfc, ip, browser, gender, kit, playera, talla, verify_digit, separate_name) VALUES ('$id', '$country', '$completecode', '$name', '$type_incorporation', '$type_per', '$type_sponsor', '$sponsor', '$email', '$cel', '$birthdate', '$address', '', '$state', '$city','$colony', '$titular_name_empresa', '$typedocument', '$numberdocument','$cotitular_name', '$typedocumentcoti', '$numer_document_cotitular', '$bank_name', '$type_account', '$numer_account', '0', '0', '$ip', '$browser', '$gender', '$kit', '$playera', '$talla', '0', '')");
+
+    \DB::disconnect('mysql_las');
+
+    echo $signupfiles;
+
+
+    if ($type_incorporation == 0) {
+        $type_letter='CLUB';
+        
+    }elseif ($type_incorporation ==1) {
+        $type_letter='CI';
+    }else{
+        $type_letter='CI';
+    }
+
+    $conection = \DB::connection('mysql_las');
+
+    $control_ci = $conection->insert("INSERT INTO nikkenla_marketing.control_ci_test (pais, tipo, codigo, nombre, codigop, correo, celular, b1, b2) VALUES ('$country', '$type_letter', '$completecode', '$name', '$sponsor', '$email', '$cel', 1, 1)");
+
+    \DB::disconnect('mysql_las');
+
+    echo $control_ci;
+
+        $secret_nikken="";
+        $conection = \DB::connection('mysql_tv');
+
+    $tv = $conection->insert("INSERT INTO users (country_id, email, sap_code, sap_code_sponsor, password,secret_nikken, client_type, rank, name,last_name,identification_number, phone, cell_phone, state, status, created_at,updated_at,last_password_update) values ('$country','$email','$completecode','$sponsor','0','$secret_nikken','$type_letter','Directo','$name','last name','0','$cel','$cel','$state','1','$creacion','$creacion','$creacion')");
+
+    \DB::disconnect('mysql_tv');
+    echo $tv;
+    $kit= $request->input('kit').trim("");
+            $kit_complete=$kit.':1';
+            $products_two=$kit_complete.';'.$playera.':1';
+
+
+            if ($type_incorporation == 0) {
+                return $this->checkOutClub($email);
+            }else{
+                return $this->checkOutAbi($email,$products_two);
+            }
+
+}
+
 
 public function storeEcuador(Request $request){
     $id = date("ymd") . date("His") . rand(1, 99);

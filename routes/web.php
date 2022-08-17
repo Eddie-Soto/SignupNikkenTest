@@ -44,6 +44,8 @@ Route::post('/saveper', 'SignupRegionalController@storePeru');
 
 Route::post('/saveecu', 'SignupRegionalController@storeEcuador');
 
+Route::post('/savecri', 'SignupRegionalController@storeCostaRica');
+
 Route::get('/profile/mex', 'SignupRegionalController@mexico');
 
 Route::get('/profile/per', 'SignupRegionalController@peru');
