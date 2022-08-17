@@ -22,13 +22,15 @@ class ImageUploadController extends Controller
 
         if ($request->has('file') && request()->file) {
             $filename = request()->file->getClientOriginalName();
+            echo $filename;
+            exit;
             $disk = \storage::disk('gcs');
             $disk->put('MyNIKKEN_src/' . $filename, file_get_contents(request()->file));
             $url = $disk->url('MyNIKKEN_src/' . $filename);
             $full_path = $url;
 
-            echo $full_path;
-            exit;
+            
+                        exit;
         }
 
         /* good code
