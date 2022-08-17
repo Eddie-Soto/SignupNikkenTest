@@ -196,7 +196,7 @@
 <script type="text/javascript">
     var firstUpload = new FileUploadWithPreview('myFirstImage1');
     var secondUpload = new FileUploadWithPreview('myFirstImage2');
-    var threeUpload = new FileUploadWithPreview('myFirstImage3');
+   // var threeUpload = new FileUploadWithPreview('myFirstImage3');
          //Inicializamos el tooltip
          $('[data-toggle="tooltip"]').tooltip();
          $('.menu-reg').css('display', 'block');
