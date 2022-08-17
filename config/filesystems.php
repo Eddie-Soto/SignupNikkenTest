@@ -67,9 +67,9 @@ return [
         
         'gcs' => [
             'driver' => 'gcs',
-            'project_id' => env('GOOGLE_CLOUD_PROJECT_ID'),
-            'key_file' => env('GOOGLE_CLOUD_KEY_FILE'),
-            'bucket' => env('GOOGLE_CLOUD_STORAGE_BUCKKET'),
+            'project_id' => 'GOOGLE_CLOUD_PROJECT_ID',
+            'key_file' => env('GOOGLE_CLOUD_KEY_FILE', null),
+            'bucket' => env('GOOGLE_CLOUD_STORAGE_BUCKKET','cmssrc'),
             'visibility' => 'public', // optional: public|private
         ],
 
