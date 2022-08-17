@@ -330,7 +330,7 @@ NIKKEN.</div>
             <div class="custom-file-container" data-upload-id="myFirstImage2">
                 <label>Reverso <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
                 <label class="custom-file-container__custom-file" >
-                    <input type="file" class="custom-file-container__custom-file__custom-file-input" onchange="ValidateExtension(this.value);" accept="image/*,application/pdf" id="filetwo" name="filetwo" >
+                    <input type="file" class="custom-file-container__custom-file__custom-file-input" onchange="ValidateExtension(this.value);" accept="image/*,application/pdf" id="filetwo" name="filetwo" multiple>
                     <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
                     <span class="custom-file-container__custom-file__custom-file-control"></span>
                 </label>
@@ -377,7 +377,9 @@ NIKKEN.</div>
 </div> 
 
 
-
+<section >
+    @include('tstdropzone')
+</section>
 
 
 
