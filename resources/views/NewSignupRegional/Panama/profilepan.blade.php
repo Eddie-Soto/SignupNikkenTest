@@ -343,14 +343,14 @@ NIKKEN.</div>
 
 <div class="row" id="txtloaddocuments">
     
-    <div col-md-12 id="natinfluencer">
+    <div col-md-12 id="natinfluencer" hidden="true">
         <ul>
     <p class="format-p-ul">A continuación ingresa los siguientes documentos, recuerda que <u><strong>cada uno debe venir por separado</strong></u>:</p>
         <li>Anexar copia de Identificación (Por ambos lados)</li>
         <li id="cuentabancaria">Anexar certificado bancario y/o encabezado del estado de cuenta bancario.<small>(debe detallarse tipo de cuenta, nombre del banco, cuenta bancaria, nombre del titular de la cuenta, de no anexar las imagenes no se guardará en esta afiliación).</small></li>
     </ul>
     </div>
-    <div col-md-12 id="jurinfluencer">
+    <div col-md-12 id="jurinfluencer" hidden="true">
         <ul>
     <p class="format-p-ul">A continuación ingresa los siguientes documentos, recuerda que <u><strong>cada uno debe venir por separado</strong></u>:</p>
     <li id="cuentabancaria">Anexar certificado bancario y/o encabezado del estado de cuenta bancario.<small>(debe detallarse tipo de cuenta, nombre del banco, cuenta bancaria, nombre del titular de la cuenta, de no anexar las imagenes no se guardará en esta afiliación).</small></li>
@@ -359,13 +359,13 @@ NIKKEN.</div>
         <li>Anexar Copia de identificación vigente del Representante Legal (Ambos lados).</li>
         </ul>
     </div>
-    <div col-md-12 id="natmiembro">
+    <div col-md-12 id="natmiembro" hidden="true">
         <ul>
     <p class="format-p-ul">A continuación ingresa los siguientes documentos, recuerda que <u><strong>cada uno debe venir por separado</strong></u>:</p>
         <li>Anexar copia de Identificación (Por ambos lados)</li>
     </ul>
     </div>
-    <div col-md-12 id="jurmiembro">
+    <div col-md-12 id="jurmiembro" hidden="true">
         <ul>
     <p class="format-p-ul">A continuación ingresa los siguientes documentos, recuerda que <u><strong>cada uno debe venir por separado</strong></u>:</p>
     
