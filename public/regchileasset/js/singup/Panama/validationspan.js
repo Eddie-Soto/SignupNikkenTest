@@ -75,6 +75,7 @@ $( document ).ready(function() {
                 maxlength: 20
             },
             cel: {
+                required: true,
                 number: true,
                 maxlength: 20
             },
@@ -230,6 +231,7 @@ $( document ).ready(function() {
                 maxlength: "Solo puede colocar hasta 20 caracteres en este campo"
             },
             cel: {
+                required: "Este campo es obligatorio",
                 number: "Este campo es numerico",
                 maxlength: "Solo puede colocar hasta 20 caracteres en este campo"
             },

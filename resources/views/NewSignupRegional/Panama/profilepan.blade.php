@@ -218,7 +218,7 @@ NIKKEN.</div>
 
 <div class="row">
     <div id="cel_natural" class="col-lg-12">
-        <label for="cel"><b>TELÉFONO MOVIL:</b></label>
+        <label for="cel"><span style="color: red !important;">*</span> <b>TELÉFONO MOVIL:</b></label>
         <input type="text" id="cel" name="cel" class="form-control">
     </div>
 </div>
