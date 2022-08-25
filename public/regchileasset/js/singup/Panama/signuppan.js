@@ -793,7 +793,7 @@ function verify_terms(){
     if(!$("input[id='terms']").is(':checked')){
         swal({
             title: 'Error',
-            text: 'Debes aceptar los temrinos y condiciones',
+            text: 'Debes aceptar los terminos y condiciones',
             type: 'error',
             padding: '2em'
         })
@@ -808,7 +808,7 @@ function verify_privacy_policy(){
     if(!$("input[id='privacy_policy']").is(':checked')){
         swal({
             title: 'Error',
-            text: privacy_policy_acept,
+            text: 'Debes aceptar la politíca de privacidad',
             type: 'error',
             padding: '2em'
         })
@@ -822,7 +822,7 @@ function verify_declare(){
     if(!$("input[id='declare']").is(':checked')){
         swal({
             title: 'Error',
-            text: declare_acept,
+            text: 'Debes la declaración de privacidad',
             type: 'error',
             padding: '2em'
         })
