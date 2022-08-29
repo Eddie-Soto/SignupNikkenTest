@@ -14,7 +14,7 @@ class SignupRegionalController extends Controller
 {
 	const S3_SLIDERS_FOLDER = 'IncorporacionRegional';
 	const S3_OPTIONS = ['disk' => 's3', 'visibility' => 'public'];
-    const $platform='Incorporación Regional';
+    
     
 
 	public function index(Request $request){
@@ -473,7 +473,7 @@ function Assigned_sponsor($name,$email,$phone,$country,$state,$platform,$user)
 
 public function storeCostaRica(Request $request){
     $id = date("ymd") . date("His") . rand(1, 99);
-
+$platform='Incorporación Regional';
     $creacion = date("Y-m-d H:i:s");
     $country = $request->input('country').trim("");
     $type_incorporation = $request->input('type_inc').trim("");
@@ -490,7 +490,7 @@ public function storeCostaRica(Request $request){
     $titular_name_empresa = $request->input('name-legal-representative').trim("");
     $titular_name_empresa = strtoupper($titular_name_empresa);
     $name="";
-    
+    $platform='Incorporación Regional';
     if ($type_per == "0") {
         $name=$titular_name_empresa;
 
@@ -698,7 +698,7 @@ public function storeCostaRica(Request $request){
 
 public function storeEcuador(Request $request){
     $id = date("ymd") . date("His") . rand(1, 99);
-
+$platform='Incorporación Regional';
     $creacion = date("Y-m-d H:i:s");
     $country = $request->input('country').trim("");
     $type_incorporation = $request->input('type_inc').trim("");
@@ -922,7 +922,7 @@ public function storeEcuador(Request $request){
 
 public function storePeru(Request $request){
 	$id = date("ymd") . date("His") . rand(1, 99);
-
+$platform='Incorporación Regional';
 	$creacion = date("Y-m-d H:i:s");
 	$country = $request->input('country').trim("");
 	$type_incorporation = $request->input('type_inc').trim("");
