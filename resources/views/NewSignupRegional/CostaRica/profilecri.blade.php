@@ -264,7 +264,7 @@
 <div class="row">
     <div class="col-md-6" id="typedocuments">
       <label for="typedocument"><span style="color: red !important;">*</span> <b>Tipo de Documento:</b></label>
-      <select id="typedocument" name="typedocument" class="form-control" >
+      <select id="typedocument" name="typedocument" onchange="ValidateNumberDocuments(this.value);" class="form-control" >
         <option value="">Selecciona Tu Documento</option>
         
     </select>
@@ -470,7 +470,19 @@
 
 
 <script type="text/javascript">
+    function ValidateNumberDocuments(type_document){
+      var number_document=document.getElementById('numberdocument');
+      number_document.removeAttribute('minlength');
+      number_document.removeAttribute('maxlength');
+        if (type_document == 10) {
+            number_document.setAttribute('minlength', '9');
+            number_document.setAttribute('maxlength', '9');
+        }else{
+            number_document.setAttribute('minlength', '12');
+            number_document.setAttribute('maxlength', '12');
+        }
 
+    }
 /**
 * Función que muestra los campos dependiendo el tipo de incorporación
 */

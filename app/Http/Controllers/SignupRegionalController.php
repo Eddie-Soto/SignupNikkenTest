@@ -14,7 +14,7 @@ class SignupRegionalController extends Controller
 {
 	const S3_SLIDERS_FOLDER = 'IncorporacionRegional';
 	const S3_OPTIONS = ['disk' => 's3', 'visibility' => 'public'];
-
+    $platform='Incorporación Regional';
     
 
 	public function index(Request $request){
