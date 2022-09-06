@@ -12,6 +12,10 @@ $( document ).ready(function() {
         return /^[a-zA-Z0-9\-áéíóúüñÁÉÍÓÚÜÑ, ]*$/i.test(value);
     }, "Ingrese sólo letras, números o espacios.");
 
+    $.validator.addMethod("onlynumber", function(value, element) {
+        return /^[0-9]*$/i.test(value);
+    }, "Ingrese sólo números.");
+
     $("#formProfile").validate({
         rules: {
             'shirt-size':{
@@ -72,11 +76,11 @@ $( document ).ready(function() {
             },
             tel: {
                 number: true,
-                maxlength: 20
+                maxlength: 10
             },
             cel: {
                 number: true,
-                maxlength: 20
+                maxlength: 10
             },
             postal_code: {
                 number: true,
@@ -166,7 +170,17 @@ $( document ).ready(function() {
             },
             'filetwo': {
                 required: true
+            },
+            numberdocument: {
+                required: true,
+                onlynumber: true
+            },
+            numer_document_cotitular: {
+                required: true,
+                onlynumber: true
             }
+
+            
         },
         messages: {
             'shirt-size':{
@@ -227,11 +241,11 @@ $( document ).ready(function() {
             tel: {
                 required: "Este campo es obligatorio",
                 number: "Este campo es numerico",
-                maxlength: "Solo puede colocar hasta 20 caracteres en este campo"
+                maxlength: "Solo puede colocar hasta 10 caracteres en este campo"
             },
             cel: {
                 number: "Este campo es numerico",
-                maxlength: "Solo puede colocar hasta 20 caracteres en este campo"
+                maxlength: "Solo puede colocar hasta 10 caracteres en este campo"
             },
             postal_code: {
                 number: "Este campo es numerico",
@@ -321,6 +335,14 @@ $( document ).ready(function() {
             },
             'filetwo': {
                 required: "Este campo es obligatorio"
+            },
+            numberdocument: {
+                required: "Este campo es obligatorio",
+                onlynumber: "Soló Ingrese Números"
+            },
+            numer_document_cotitular: {
+                required: "Este campo es obligatorio",
+                onlynumber: "Soló Ingrese Números"
             }
 
         }

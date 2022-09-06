@@ -226,16 +226,17 @@
 
     <div class="col-md-3">
         <label for="state"><span style="color: red !important;">*</span> <b>Departamento:</b></label>
-        <select id="state"  name="state" class="form-control">
+        <select id="state"  name="state" class="form-control" onchange="getCities()">
            {{-- <option value="" selected>{{ __('auth.selreg') }}</option>--}}
        </select>
    </div>
 
    <div class="col-md-3">
-        <label for="city"><span style="color: red !important;">*</span> <b>Ciudad:</b></label>
-        <input type="text" name="city" id="city" class="form-control">
-        
-   </div>
+      <label for="city"><span style="color: red !important;">*</span> <b>Ciudad:</b></label>
+      <select id="city" name="city" class="form-control" >
+       {{-- <option value="" selected>{{ __('auth.selreg') }}</option>--}}
+   </select>
+</div>
 
    
 
