@@ -30,6 +30,7 @@ Route::get('/searchsponsorValid','SignupRegionalController@searchsponsorValid');
 Route::get('/searchsponsor', 'SignupRegionalController@searchsponsor');
 Route::get('/playeras', 'SignupRegionalController@playeras');
 Route::get('/email', 'SignupRegionalController@validateEmail');
+Route::get('/identificacionvalid', 'SignupRegionalController@ValidateIdentification');
 
 Route::get('/typedocuments', 'SignupRegionalController@gettypeDocuments');
 Route::get('/banks', 'SignupRegionalController@getbanks');

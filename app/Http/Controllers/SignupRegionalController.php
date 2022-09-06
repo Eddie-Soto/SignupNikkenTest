@@ -102,6 +102,24 @@ class SignupRegionalController extends Controller
     }
 
     /**
+     * Función que valida que el numidentification digitado no se enceuntre en la BD
+     */
+    public function ValidateIdentification(Request $request)
+    {
+        $numidentification = $request->numidentification;
+
+        $conection = \DB::connection('mysql_las');
+        $responsevalid = $conection->select("SELECT * from RFC_IW_COL where LictradNum='$numidentification' and EstatusID = 'Activo';");
+        \DB::disconnect('mysql_las');
+
+        if ($responsevalid) {
+            echo '1';
+        } else {
+            echo "0";
+        }
+    }
+
+    /**
      * Función busca al sponsor en Control_ci
      */
     public function searchsponsor(Request $request)

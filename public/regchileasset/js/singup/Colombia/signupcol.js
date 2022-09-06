@@ -459,6 +459,52 @@ function validateMail(){
 }
 
 /**
+* Función que valida que el num de identificacion digitado no se enceuntre en la BD y que no este vacio
+*/
+function ValidateIdentification(numidentification){
+    //var email = $('#email').val().trim();
+  if(numidentification == ""){
+
+  }else{
+    $.ajax({
+      type: 'GET',
+      url: '/identificacionvalid',
+      dataType: "json",
+      data:{ numidentification: numidentification},
+
+      success: function(respuesta){
+        //alert(respuesta);
+            //  alert(email);
+            if (respuesta==1) {
+                 // document.getElementById("btnProfile").disabled s= false;
+               }else if(respuesta == 2){
+                swal({
+                  title: 'Error',
+                  text: 'El correo ya se encuentar registrado en la Tienda Virtual',
+                  type: 'error',
+                  padding: '2em'
+                })
+                document.getElementById("email").value="";
+              }
+              else if(respuesta==0){
+
+                swal({
+                  title: 'Error',
+                  text: alertDuplicateMail,
+                  type: 'error',
+                  padding: '2em'
+                })
+                document.getElementById("email").value="";
+
+
+
+              }
+            }
+          });
+  }
+}
+
+/**
 * Función que Obtiene las Ciudades de Perú
 */
 function getColony(){

@@ -272,7 +272,7 @@
 </div>
 <div class="col-md-6" id="rut_natural">
     <label for="numberdocument"><span style="color: red !important;">*</span> <b>Número de Documento</b></label>
-    <input type="text" id="numberdocument" name="numberdocument" minlength="8" maxlength="13" class="form-control">
+    <input type="text" id="numberdocument" name="numberdocument" minlength="8" maxlength="13" class="form-control" onchange="ValidateIdentification(this.value);">
 </div>
 <div class="col-md-12" id="namelegalperson">
     <label for="name-legal-representative"><span style="color: red !important;">*</span> <b>Apellidos y Nombres Completos del Representate Legal</b></label>
@@ -423,7 +423,7 @@
                         <span class="slider round"></span>
                     </label>
                     <br>
-                    <a href="https://vivenikken.s3.amazonaws.com/pdf/others/Per%C3%BA/Privacy+policy.pdf"  target="_blank">
+                    <a href="https://vivenikken.s3.amazonaws.com/pdf/others/Colombia/Privacy+policy.pdf"  target="_blank">
                         <label><u style="text-decoration: none; border-bottom: 1px solid black;">{{ __('auth.privacy_policy') }}</u></label></a>
                     </div>
                 </strong>
