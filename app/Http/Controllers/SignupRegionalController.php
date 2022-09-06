@@ -108,9 +108,9 @@ class SignupRegionalController extends Controller
     {
         $numidentification = $request->numidentification;
 
-        $conection = \DB::connection('mysql_las');
+        $conection = \DB::connection('sqlsrv5');
         $responsevalid = $conection->select("SELECT * from RFC_IW_COL where LictradNum='$numidentification' and EstatusID = 'Activo';");
-        \DB::disconnect('mysql_las');
+        \DB::disconnect('sqlsrv5');
 
         if ($responsevalid) {
             echo '1';
