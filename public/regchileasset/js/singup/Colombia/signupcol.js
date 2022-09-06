@@ -65,7 +65,7 @@ function getDataShirt(){
     playeras(gender, kit);
   }
 
-  function playeras(gender, kit){
+function playeras(gender, kit){
   var divplayeras = document.getElementById('show-playeras');
   var div_image=document.getElementById('shirt-sample');
   var country = $('#country').val();
@@ -156,14 +156,14 @@ function CodeBien(){
 
        });
 
-      }
+}
 
-      function funciontomarcodigo(value){
+function funciontomarcodigo(value){
   document.getElementById("code-sponsor").value=value;
   document.getElementById('view-name-sponsor').innerHTML='';
   Search_sponsor_Valid(value);
     //alert(value);
-  }
+}
 
   /**
 * Función que comprueba el sponsor
@@ -240,7 +240,7 @@ function Search_sponsor_Valid(){
         document.getElementById("code-sponsor-validate").value = "";
       }
     });
-      }
+}
 
 /**
 * Función que busca el sponsor
@@ -331,7 +331,7 @@ function Validate_sponsor_exist(){
        // alert('Digita un sponsor valido');
        document.getElementById("code-sponsor").value="";
      }
-   }
+}
 
 /**
 * Función que hace una opacidad en los tipos de sponsor
@@ -369,7 +369,7 @@ function Opacity_type_sponsor(value)
         document.getElementById("code-sponsor-validate").value = "0";
 
       }
-    }
+}
 
 /**
 * Función que Valida la fecha de nacimiento
@@ -526,12 +526,12 @@ function getCities(){
 
          }
        });
-      }
+}
 
 /**
 * Función que obtiene los estados 
 */
-/*CHILE CHANGUE CIUDAD*/
+/*CHANGUE CIUDAD*/
 function getStates(){
   var country = $('#country').val();
   $.ajax({
@@ -619,9 +619,12 @@ function getDocumentscoti(){
 
           }
         });
-      }
+}
 
-      function getTypePerson(value){
+/**
+* Función que Obtiene las tipos de persona de Perú
+*/
+function getTypePerson(value){
   if(value == "1") //persona natural
   {
 
@@ -682,42 +685,7 @@ function getDocuments(){
 
           }
         });
-      }
-
-      function getTypePerson(value){
-  if(value == "1") //persona natural
-  {
-
-     // document.getElementById('socio_econ').setAttribute('disabled',true); 
-     /* Cambia el texto de el campo nombre titular si selecciona persona natural */
-     document.getElementById('namenat').removeAttribute('hidden',true);
-     document.getElementById('apenat').removeAttribute('hidden',true);
-     document.getElementById('empname').setAttribute('hidden',true);
-     document.getElementById('namelegalperson').setAttribute('hidden',true);
-     document.getElementById('cotitularoptions').removeAttribute('hidden',true);
-     
-     
-
-   }
-   else if(value=="2"){ //persona natural con actividades
-     document.getElementById('namenat').removeAttribute('hidden',true);
-     document.getElementById('apenat').removeAttribute('hidden',true);
-     document.getElementById('empname').setAttribute('hidden',true);
-     document.getElementById('namelegalperson').setAttribute('hidden',true);
-     document.getElementById('cotitularoptions').removeAttribute('hidden',true);
-   }
-   else if(value == "0") //persona Juridica
-   {
-    document.getElementById('namenat').setAttribute('hidden',true);
-    document.getElementById('apenat').setAttribute('hidden',true);
-    document.getElementById('empname').removeAttribute('hidden',true);
-    document.getElementById('namelegalperson').removeAttribute('hidden',true);
-    document.getElementById('cotitularoptions').setAttribute('hidden',true);
-
-  }
 }
-
-
 
 $( document ).ready(function() {
 
@@ -725,4 +693,4 @@ $( document ).ready(function() {
   getBanks();
 
         //document.getElementById("btnProfile").disabled = true;
-      });
+});
