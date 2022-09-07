@@ -475,31 +475,18 @@ function ValidateIdentification(numidentification){
       success: function(respuesta){
         //alert(respuesta);
             //  alert(email);
-            if (respuesta==1) {
+            if (respuesta=0) {
                  // document.getElementById("btnProfile").disabled s= false;
-               }else if(respuesta == 2){
+               }else if(respuesta == 1){
                 swal({
                   title: 'Error',
-                  text: 'El correo ya se encuentar registrado en la Tienda Virtual',
+                  text: 'El número de identifiación ya se encuentar registrado en la Tienda Virtual',
                   type: 'error',
                   padding: '2em'
                 })
-                document.getElementById("email").value="";
+                document.getElementById("numberdocument").value="";
               }
-              else if(respuesta==0){
-
-                swal({
-                  title: 'Error',
-                  text: alertDuplicateMail,
-                  type: 'error',
-                  padding: '2em'
-                })
-                document.getElementById("email").value="";
-
-
-
-              }
-            }
+             
           });
   }
 }
