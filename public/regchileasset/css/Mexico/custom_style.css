@@ -1,0 +1,29 @@
+.facturas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.facturas .radio_group{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.text-invoice h6{
+    font-weight: bold;
+    font-size:medium;
+}
+.text-invoice p{
+    font-weight: bold;
+    font-size: small;
+}
+.text-invoice span{
+    color: rgb(110, 10, 10);
+}
+.up_fiscal p{
+    text-align: justify;
+    font-weight: bold;
+    font-size: smaller;
+    color: rgb(78, 7, 7);
+}
