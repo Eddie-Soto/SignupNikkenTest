@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\SignupRegionalController;
+
 Route::get('upload', 'ImageUploadController@upload');
 Route::post('upload/store', 'ImageUploadController@store');
 Route::post('delete', 'ImageUploadController@delete');
@@ -48,6 +51,9 @@ Route::post('/saveecu', 'SignupRegionalController@storeEcuador');
 Route::post('/savecri', 'SignupRegionalController@storeCostaRica');
 
 Route::get('/profile/mex', 'SignupRegionalController@mexico');
+
+Route::POST('upload_constancia',[SignupRegionalController::class, 'upload_constancia'])->name('upload_constancia');
+Route::get('test',[SignupRegionalController::class, 'test'])->name('test');
 
 Route::get('/profile/per', 'SignupRegionalController@peru');
 

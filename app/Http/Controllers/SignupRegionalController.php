@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\ImageUpload;
-use Illuminate\Http\Request;
 use App;
 use Redirect;
 use \Exception;
+use App\ImageUpload;
 use Aws\S3\S3Client;
+use Illuminate\Http\Request;
 use Aws\S3\S3ClientInterface;
+use Google\Cloud\Storage\StorageClient;
 use Illuminate\Support\Facades\Storage;
 
 header("Content-Type: text/html;charset=utf-8");
@@ -1230,4 +1231,105 @@ class SignupRegionalController extends Controller
 
         return Redirect::to($url);
     }
+
+    public function upload_constancia(Request $request){
+        if ($request->hasFile('myfile')) {
+            try {
+                $storage = new StorageClient([
+                    'keyFilePath' => base_path() . '/public/credentials.json',
+                ]);
+
+                // $bucketName = env('GOOGLE_CLOUD_STORAGE_BUCKET');
+                $bucketName = 'tv-store';
+                $bucket = $storage->bucket($bucketName);
+
+                //get filename with extension
+                // $filename = $request->file('myfile')->getClientOriginalName();
+                $carpeta = 'datos-fiscales/';
+
+                 //get filename with extension
+                 $filenamewithextension = $request->file('myfile')->getClientOriginalName();
+ 
+                 //get filename without extension
+                 $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+  
+                 //get file extension
+                 $extension = $request->file('myfile')->getClientOriginalExtension();
+  
+                 //filename to store
+                 $filenametostore = $filename.'_'.uniqid().'.'.$extension;
+                
+
+
+
+                Storage::put('public/uploads/' . $filenametostore, fopen($request->file('myfile'), 'r+'));
+
+                $filepath = storage_path('app/public/uploads/' . $filenametostore);
+
+                $object = $bucket->upload(
+                    fopen($filepath, 'r'),
+                    [
+                        'name' => $carpeta.$filenametostore,
+                        'predefinedAcl' => 'publicRead'
+                    ]
+                );
+
+
+                 // delete file from local disk
+                 Storage::delete('public/uploads/'. $filenametostore);
+
+        $link = 'https://storage.googleapis.com/'.$bucketName.'/'.$carpeta.$filenametostore;
+        // $response['status'] = 200;
+        // return $response;
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,'https://cmsnikken.nikkenlatam.com/apiDataFiscalPDF?t=fisica&f=https://storage.googleapis.com/tv-store/datos-fiscales/62c5e84c1e836_CIF_JUDITH_VILLANUEVA_FEB_2022.pdf' );
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        $response = curl_exec($ch);
+        if(curl_errno($ch)) echo curl_error($ch);
+        else $decoded = json_decode($response);
+        // var_dump($decoded);
+        // echo $decoded->RFC;
+        
+        
+
+         $res['status'] = 200;
+         $res['data'] = $decoded;
+         
+         return $response;
+         curl_close($ch);
+            //  return redirect('upload')->with('success', "File is uploaded successfully. File path is: https://storage.googleapis.com/$bucketName/$filenametostore");
+                
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        }
+    }
+
+
+    public function test(){
+        // echo "hola";
+
+        // $ch = curl_init('https://cmsnikken.nikkenlatam.com/apiDataFiscalPDF?t=fisica&f=https://storage.googleapis.com/tv-store/datos-fiscales/62c5e84c1e836_CIF_JUDITH_VILLANUEVA_FEB_2022.pdf');
+        //         curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        // $response = curl_exec($ch);
+        // $data = json_decode($response,true);
+        // echo $data;
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,'https://cmsnikken.nikkenlatam.com/apiDataFiscalPDF?t=fisica&f=https://storage.googleapis.com/tv-store/datos-fiscales/62c5e84c1e836_CIF_JUDITH_VILLANUEVA_FEB_2022.pdf' );
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        $response = curl_exec($ch);
+        if(curl_errno($ch)) echo curl_error($ch);
+        else $decoded = json_decode($response);
+        // var_dump($decoded);
+        $data = strval($decoded->RFC);
+        return $data;
+         curl_close($ch);
+    }
+
+
+
+
+
 }

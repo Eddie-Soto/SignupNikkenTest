@@ -5,6 +5,7 @@
 @section('content')
 
     <div class="row" class="tooltip-section">
+        <input type="hidden" id="url" value="{{ asset('') }}">
         <div class="col-md-12 text-center mb-4">
             <img alt="logo" src="https://nikkenlatam.com/oficina-virtual/assets/images/general/logo-header-black.png"
                 class="theme-logo">
@@ -54,6 +55,9 @@
 
         <form action="/save" method="post" id="formProfile" accept-charset="UTF-8" enctype="multipart/form-data"
             class="form-control" border="none" onKeypress="if(event.keyCode == 13) event.returnValue = false;">
+            {{-- <div class="form-group"> --}}
+
+
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div class="row">
@@ -212,22 +216,13 @@
                     actualices tu constancia fiscal para que podamos emitir tus facturas de manera correcta.</p>
             </div>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="type_per"><span style="color: red !important;">*</span>
-                        <b>{{ __('auth.type_per') }}</b></label>
-                    <select id="type_per" name="type_per" class="form-control" onchange="type_person(this.value)">
-                        <option value=""></option>
-                        <option value="1">{{ __('auth.pernat') }}</option>
-                        <option value="2">{{ __('auth.pernatint') }}</option>
-                        <option value="0">{{ __('auth.perjur') }}</option>
-                    </select>
-                </div>
+            <div class="row mt-4 mb-3 container ml-4" id="upload_constancia">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#upload_modal">Subir
+                    Constancia</button>
 
-
-            </div>
-
-            <div class="row mt-4 mb-3" id="upload_constancia">
+                {{-- <button type="button" class="btn btn-info" id="show_modal_constancia">Subir Constancia </button> --}}
+                {{-- <form id="upload_constancia_form" action="{{ url('upload_payment') }}" method="post" enctype="multipart/form-data">
+                    @csrf
                 <div class="col-md-12">
                     <label for="name_titular"><span style="color: red !important;">*</span>
                         <b>Constancia Fiscal</b></label>
@@ -237,11 +232,29 @@
                             El archivo que se adjunta deberás bajarlo de la plataforma del SAT (Únicamente archivos
                             digitales).
                         </p>
-                        <input type="file" name="invoice_file" id="invoice_file">
+                        <input type="file" name="myfile" id="myfile"/>
+                            <input type="hidden" name="url_constancia" id="url_constancia">
                     </div>
-
+                    <button type="button" id="btn_update_constancia" class="btn btn-info" onclick="upload_constancia()">Validar Constancia</button>
                 </div>
+                    </form>  --}}
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="type_per"><span style="color: red !important;">*</span>
+                        <b>{{ __('auth.type_per') }}</b></label>
+                    <select id="type_per" name="type_per" class="form-control" onchange="type_person(this.value)">
+                        <option value=""></option>
+                        <option value="1">{{ __('auth.pernat') }}</option>
+                        {{-- <option value="2">{{ __('auth.pernatint') }}</option> --}}
+                        <option value="0">{{ __('auth.perjur') }}</option>
+                    </select>
+                </div>
+
+
+            </div>
+
+
 
             <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
                 <div class="col-md-6" id="jur">
@@ -295,9 +308,9 @@
                     <input type="text" id="email" name="email" onblur="validateMail()" class="form-control">
                 </div>
                 <!--div class="col-md-6" id="mail">
-                  <label for="email"><span style="color: red !important;">*</span> <b>{{ __('auth.email') }}</b></label>
-                  <input type="text" id="email" name="email" onblur="validateMailSql()" class="form-control">
-              </div-->
+                                                  <label for="email"><span style="color: red !important;">*</span> <b>{{ __('auth.email') }}</b></label>
+                                                  <input type="text" id="email" name="email" onblur="validateMailSql()" class="form-control">
+                                              </div-->
                 <div class="col-md-6" id="gender">
                     <label for="gender"><span style="color: red !important;">*</span>
                         <b>{{ __('auth.gender') }}</b></label>
@@ -315,7 +328,7 @@
                                 style="color: red !important;">*</span>{{ __('auth.celPhone') }}</b></label>
                     <input type="text" id="cel" name="cel" class="form-control">
                 </div>
-                <div id="rfc" class="col-md-6">
+                <div class="col-md-6">
                     <label for="rfc"><b><span style="color: red !important;">*</span>RFC</b></label>
                     <input type="text" id="rfc" name="rfc" class="form-control">
                 </div>
@@ -378,15 +391,15 @@
 
 
             <!--div class="row">
-                <div class="col-md-12" id="rut_natural">
-                    <label for="rut_nat"><span style="color: red !important;">*</span> <b>{{ __('auth.rut') }}</b></label>
-                    <input type="text" id="rut_nat" name="rut_nat" class="form-control">
-                </div>
-                <div class="col-md-12" id="rut_juridica" hidden="true">
-                    <label for="rut"><span style="color: red !important;">*</span> <b>{{ __('auth.rutJur') }}</b></label>
-                    <input type="text" id="rut" name="rut" class="form-control">
-                </div>
-            </div-->
+                                                <div class="col-md-12" id="rut_natural">
+                                                    <label for="rut_nat"><span style="color: red !important;">*</span> <b>{{ __('auth.rut') }}</b></label>
+                                                    <input type="text" id="rut_nat" name="rut_nat" class="form-control">
+                                                </div>
+                                                <div class="col-md-12" id="rut_juridica" hidden="true">
+                                                    <label for="rut"><span style="color: red !important;">*</span> <b>{{ __('auth.rutJur') }}</b></label>
+                                                    <input type="text" id="rut" name="rut" class="form-control">
+                                                </div>
+                                            </div-->
 
             <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
                 <div class="col-md-12" id="rut_natural">
@@ -405,7 +418,7 @@
                     <label for=""><b>DESEO OCUPAR MI MISMA DIRECCIÓN DE FACTURACIÓN</b></label>
                 </div>
                 <div class="col-2">
-                    <div class="form-check form-check-inline" >
+                    <div class="form-check form-check-inline">
                         <input type="checkbox" name="check_invoice_address" id="check_invoice_address">
                     </div>
                 </div>
@@ -559,10 +572,10 @@
                                     id="code-sponsor-validate">
                             </div>
                             <!--div class="form-group">
-                                   <input type="text"  class="form-control input-sponsor" name="code-sponsor" id="code-sponsor" placeholder="Ingresa aquí el código aquí" onkeyup="Search_sponsor(this.value)" onchange ="Validate_sponsor_exist()">
+                                                                   <input type="text"  class="form-control input-sponsor" name="code-sponsor" id="code-sponsor" placeholder="Ingresa aquí el código aquí" onkeyup="Search_sponsor(this.value)" onchange ="Validate_sponsor_exist()">
 
-                                   <input type="hidden" class="form-control required input-validator-sponsor" id="code-sponsor-validate">
-                               </div-->
+                                                                   <input type="hidden" class="form-control required input-validator-sponsor" id="code-sponsor-validate">
+                                                               </div-->
                         </div>
                         <div class="col-sm-7">
                             <div class="form-group">
@@ -645,27 +658,38 @@
                 <button type="submit" class="btn btn-info" onclick="validations()"
                     id="btnProfile">{{ __('auth.next') }}</button>
             </div>
-    </div>
-    <div style="text-align: right !important;" class=" form-group col-md-12">
-        <input type="hidden" id="alertDuplicateMail" value="{{ __('auth.alertDuplicateMail') }}" readonly>
-        <input type="hidden" id="terminos" value="{{ __('auth.terminos') }}" readonly>
-        <input type="hidden" id="privacy_policy_acept" value="{{ __('auth.privacy_policy_acept') }}" readonly>
-        <input type="hidden" id="alertHeigtAge" value="{{ __('auth.alertHeigtAge') }}" readonly>
-        <input type="hidden" id="declare_acept" value="{{ __('auth.declare_acept') }}" readonly>
-        <input type="hidden" id="rquired" value="{{ __('auth.rquired') }}" readonly>
-        <input type="hidden" id="code_no_exist" value="{{ __('auth.code_no_exist') }}" readonly>
-        <input type="hidden" id="loginError" value="{{ __('auth.loginError') }}" readonly>
-        <input type="hidden" id="alertSponsorId" value="{{ __('auth.alertSponsorId') }}" readonly>
-        <input type="hidden" id="alertMailInvalid" value="{{ __('auth.alertMailInvalid') }}" readonly>
-        <!--CHILE CHANGUE CIUDAD-->
-        <input type="hidden" id="selreg" value="{{ __('auth.selreg') }}" readonly>
-        <!--CHILE CHANGUE CIUDAD-->
-        <input type="hidden" id="completeDate" value="{{ __('auth.completeDate') }}" readonly>
-        <label id="cargando" name="cargando" style="display: none"> {{ __('auth.labelLoad') }}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            {{-- </div> --}}
+            <div style="text-align: right !important;" class=" form-group col-md-12">
+                <input type="hidden" id="alertDuplicateMail" value="{{ __('auth.alertDuplicateMail') }}" readonly>
+                <input type="hidden" id="terminos" value="{{ __('auth.terminos') }}" readonly>
+                <input type="hidden" id="privacy_policy_acept" value="{{ __('auth.privacy_policy_acept') }}" readonly>
+                <input type="hidden" id="alertHeigtAge" value="{{ __('auth.alertHeigtAge') }}" readonly>
+                <input type="hidden" id="declare_acept" value="{{ __('auth.declare_acept') }}" readonly>
+                <input type="hidden" id="rquired" value="{{ __('auth.rquired') }}" readonly>
+                <input type="hidden" id="code_no_exist" value="{{ __('auth.code_no_exist') }}" readonly>
+                <input type="hidden" id="loginError" value="{{ __('auth.loginError') }}" readonly>
+                <input type="hidden" id="alertSponsorId" value="{{ __('auth.alertSponsorId') }}" readonly>
+                <input type="hidden" id="alertMailInvalid" value="{{ __('auth.alertMailInvalid') }}" readonly>
+                <!--CHILE CHANGUE CIUDAD-->
+                <input type="hidden" id="selreg" value="{{ __('auth.selreg') }}" readonly>
+                <!--CHILE CHANGUE CIUDAD-->
+                <input type="hidden" id="completeDate" value="{{ __('auth.completeDate') }}" readonly>
+                <label id="cargando" name="cargando" style="display: none"> {{ __('auth.labelLoad') }}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+            </div>
+
+
+
+        </form>
+        {{-- Modal Subir Constancia --}}
+
+
 
     </div>
-    </form>
+
+ 
+
 
     <script type="text/javascript">
         /**
